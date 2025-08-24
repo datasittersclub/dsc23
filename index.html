@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSC Retro Tech Concordance - The Babysitter's Club Technology Archive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="retro-text">BSC</span>
+                <span class="tech-text">RETRO TECH</span>
+                <span class="archive-text">CONCORDANCE</span>
+            </h1>
+            <p class="subtitle">Technology Mentions from The Babysitter's Club Books</p>
+        </header>
+
+        <div class="main-content">
+            <div class="monitor-section">
+                <div class="monitor">
+                    <div class="monitor-frame">
+                        <div class="monitor-bezel">
+                            <div class="monitor-screen">
+                                <div class="scan-lines"></div>
+                                <div class="content-area" id="contentArea">
+                                    <div class="welcome-message">
+                                        <h3>🌟 Welcome to the BSC Tech Concordance! 🌟</h3>
+                                        <p>📚 Explore technology mentions from The Babysitter's Club books! 📚</p>
+                                        <div class="welcome-features">
+                                            <div>🎮 Interactive retro display</div>
+                                            <div>⚡ Auto-rotating mentions</div>
+                                            <div>🔍 20 tech terms to discover</div>
+                                        </div>
+                                        <div class="blink">► Select a term from the control panel below! ◄</div>
+                                    </div>
+                                </div>
+                                <div class="monitor-info">
+                                    <span id="currentTerm">No term selected</span>
+                                    <span id="mentionCounter">0 / 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="control-panel">
+                    <div class="panel-header">
+                        <div class="panel-lights">
+                            <div class="light red"></div>
+                            <div class="light yellow"></div>
+                            <div class="light green active"></div>
+                        </div>
+                        <span class="panel-title">TECH TERM SELECTOR</span>
+                        <div class="panel-version">v2.0</div>
+                    </div>
+                    <div class="dropdown-container">
+                        <select id="termDropdown" class="retro-dropdown">
+                            <option value="">-- CHOOSE TECHNOLOGY TERM --</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                        <div class="dropdown-arrow">▼</div>
+                    </div>
+                    <div class="panel-status">
+                        <div class="status-indicator">
+                            <div class="status-light"></div>
+                            <span id="statusText">READY TO SEARCH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-showcase">
+                <div class="showcase-container">
+                    <div class="showcase-header">
+                        <div class="showcase-icon">🤖</div>
+                        <h2 class="showcase-title">BUILT WITH AI AGENTS</h2>
+                        <div class="showcase-icon">⚡</div>
+                    </div>
+                    <p class="showcase-subtitle">See How This Interface Was Created Through AI Conversation</p>
+                    <a href="visualizing-with-agents.html" class="dramatic-link">
+                        <span class="link-text">
+                            <span class="link-icon">🔮</span>
+                            VISUALIZING WITH AGENTS
+                            <span class="link-icon">🔮</span>
+                        </span>
+                        <div class="link-glow"></div>
+                        <div class="link-pulse"></div>
+                    </a>
+                    <div class="showcase-tagline">
+                        <span class="tagline-accent">→</span> GitHub Copilot + Claude Sonnet 4 <span class="tagline-accent">←</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="geocities-footer">
+                    <div class="footer-gif">🌟✨💫</div>
+                    <p>📚 A nostalgic journey through 90s technology in Stoneybrook! 📱</p>
+                    <div class="visitor-counter">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="counter" style="width:1px;height:1px;">
+                        <span>🔢 You are visitor #∞ to this educational site! 🔢</span>
+                    </div>
+                    <p class="stats" id="statsInfo">Loading BSC tech stats...</p>
+                    <div class="footer-links">
+                        <span>🏠 <a href="#" style="color: #00ff41;">Home</a> | 📖 <a href="#" style="color: #00ff41;">About BSC</a> | � <a href="visualizing-with-agents.html" style="color: #00ff41;">Visualizing with Agents</a> | �🤝 <a href="#" style="color: #00ff41;">Guestbook</a> 🤝</span>
+                    </div>
+                    <div class="footer-gif">🌟✨💫</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
