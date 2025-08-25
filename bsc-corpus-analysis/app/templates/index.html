@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🕹️ BSC Story Analysis Terminal</title>
+    <link rel="stylesheet" href="/static/style.css?v=2025081101">
+</head>
+<body>
+    <header>
+        <h1>🕹️ Baby-Sitters Club Story Analysis Terminal</h1>
+        <nav>
+            <a href="/api_keys">🔑 API Keys</a> |
+            <a href="/visualization">📊 Visualization</a>
+        </nav>
+    </header>
+    
+    <main class="main-container">
+        <div class="left-column">
+            <section class="compact-section">
+                <h2>📁 Upload Corpus</h2>
+                <form action="/upload_corpus" method="post" enctype="multipart/form-data">
+                    <label>Select corpus file (ZIP supported):</label>
+                    <input type="file" name="corpus_file" required accept=".zip,.txt,.doc,.docx">
+                    <button type="submit">⬆️ Upload</button>
+                </form>
+            </section>
+            
+            <section class="compact-section">
+        <h2>🤖 Process Corpus</h2>
+        <form id="process-form" action="/process_corpus" method="post">
+            <div class="form-row">
+                <div class="form-col">
+                    <label>📁 Corpus:</label>
+                    <select name="corpus" id="corpus-select">
+                        <option value="">Loading corpora...</option>
+                    </select>
+                </div>
+                <div class="form-col">
+                    <label>AI Provider:</label>
+                    <select name="provider" id="provider-select">
+                        <option value="ollama">🦙 Ollama</option>
+                        <option value="openai">🔮 OpenAI</option>
+                        <option value="anthropic">🧠 Anthropic</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Model:</label>
+                    <select name="model" id="model-select"></select>
+                </div>
+                <div class="form-col">
+                    <label>🧪 Test Mode:</label>
+                    <input type="checkbox" id="test-mode-toggle"> Enable Testing
+                </div>
+            </div>
+            
+            <div id="sample-options" style="display:none;">
+                <label>Sample Size:</label>
+                <select name="sample_size" id="sample-size-select">
+                    <option value="">Full Corpus</option>
+                </select>
+            </div>
+            
+            <div id="cost-estimate" style="display:none;">
+                <h4>💰 Cost Estimate</h4>
+                <div id="cost-details"></div>
+            </div>
+            
+            <button type="submit">🚀 Process</button>
+        </form>
+            </section>
+        </div>
+        
+        <div class="right-column">
+            <section class="compact-section">
+                <h2>📋 Pipeline Status</h2>
+        <div id="pipeline-steps">
+            <ol>
+                <li id="step-1">🔍 Scene Segmentation <div class="progress-bar"><div class="progress" id="progress-1"></div></div></li>
+                <li id="step-2">🎯 Goal & Conflict Analysis <div class="progress-bar"><div class="progress" id="progress-2"></div></div></li>
+                <li id="step-3">📊 Visualization Preparation <div class="progress-bar"><div class="progress" id="progress-3"></div></div></li>
+            </ol>
+            <div id="streaming-output">
+                <h4>� Live Output</h4>
+                <div id="stream-content"></div>
+            </div>
+        </div>
+        <div id="results-preview">
+            <h3>� Analyze Results</h3>
+            <p>Select a completed analysis to visualize:</p>
+            <label>Available Results:</label>
+            <select id="result-selector"></select>
+            <div class="button-row">
+                <button id="visualize-button" onclick="visualizeSelectedResult()">🔍 View Analysis</button>
+                <button id="download-button" onclick="downloadSelectedResult()">⬇️ Download JSON</button>
+            </div>
+            <div id="result-info" style="margin-top: 10px;"></div>
+        </div>
+            </section>
+        </div>
+    </main>
+    
+    <section id="text-preview-section" style="display:none;" class="full-width-section">
+        <h2>📖 Text Preview</h2>
+        <div id="preview-controls">
+            <label>File:</label>
+            <select id="file-selector"></select>
+            <button id="refresh-preview">🔄 Refresh</button>
+        </div>
+        <div id="text-preview">
+            <h4 id="preview-filename"></h4>
+            <pre id="preview-content"></pre>
+            <div id="preview-stats"></div>
+        </div>
+    </section>
+    
+    <script>
+        // Global state
+        let currentCorpus = '';
+        let currentProvider = 'ollama';
+        let currentModel = '';
+        
+        // Initialize test mode functionality
+        function initTestMode() {
+            const testToggle = document.getElementById('test-mode-toggle');
+            const sampleOptions = document.getElementById('sample-options');
+            const textPreviewSection = document.getElementById('text-preview-section');
+            
+            testToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    sampleOptions.style.display = 'block';
+                    textPreviewSection.style.display = 'block';
+                    loadSampleOptions();
+                    loadTextPreview();
+                } else {
+                    sampleOptions.style.display = 'none';
+                    textPreviewSection.style.display = 'none';
+                }
+                updateCostEstimate();
+            });
+        }
+        
+        // Load sample options for current corpus
+        function loadSampleOptions() {
+            if (!currentCorpus) return;
+            
+            fetch(`/get_sample_options?corpus=${encodeURIComponent(currentCorpus)}`)
+                .then(res => res.json())
+                .then(data => {
+                    const select = document.getElementById('sample-size-select');
+                    select.innerHTML = '<option value="">Full Corpus</option>';
+                    
+                    if (data.sample_options) {
+                        data.sample_options.forEach(size => {
+                            const opt = document.createElement('option');
+                            opt.value = size;
+                            opt.textContent = `${size} file${size > 1 ? 's' : ''}`;
+                            if (size === data.total_files) {
+                                opt.textContent += ' (Full Corpus)';
+                            }
+                            select.appendChild(opt);
+                        });
+                    }
+                })
+                .catch(err => console.error('Error loading sample options:', err));
+        }
+        
+        // Load text preview
+        function loadTextPreview() {
+            if (!currentCorpus) return;
+            
+            fetch(`/preview_sample?corpus=${encodeURIComponent(currentCorpus)}&file_index=0`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('preview-content').textContent = `Error: ${data.error}`;
+                        return;
+                    }
+                    
+                    document.getElementById('preview-filename').textContent = data.filename;
+                    document.getElementById('preview-content').textContent = data.preview;
+                    document.getElementById('preview-stats').innerHTML = 
+                        `Length: ${data.full_length} characters | File ${data.file_index + 1} of ${data.total_files}`;
+                    
+                    // Populate file selector
+                    const fileSelector = document.getElementById('file-selector');
+                    fileSelector.innerHTML = '';
+                    for (let i = 0; i < data.total_files; i++) {
+                        const opt = document.createElement('option');
+                        opt.value = i;
+                        opt.textContent = `File ${i + 1}`;
+                        if (i === data.file_index) opt.selected = true;
+                        fileSelector.appendChild(opt);
+                    }
+                })
+                .catch(err => console.error('Error loading text preview:', err));
+        }
+        
+        // Update cost estimate
+        function updateCostEstimate() {
+            if (!currentCorpus || !currentProvider || !currentModel) return;
+            
+            const testMode = document.getElementById('test-mode-toggle').checked;
+            const sampleSize = testMode ? document.getElementById('sample-size-select').value : '';
+            
+            const params = new URLSearchParams({
+                corpus: currentCorpus,
+                provider: currentProvider,
+                model: currentModel
+            });
+            
+            if (sampleSize) {
+                params.append('sample_size', sampleSize);
+            }
+            
+            fetch(`/estimate_cost?${params}`)
+                .then(res => res.json())
+                .then(data => {
+                    const costDiv = document.getElementById('cost-details');
+                    const costSection = document.getElementById('cost-estimate');
+                    
+                    if (data.error) {
+                        costDiv.innerHTML = `<span class="error">Error: ${data.error}</span>`;
+                        costSection.style.display = 'block';
+                        return;
+                    }
+                    
+                    const tokens = data.tokens;
+                    const cost = data.cost;
+                    
+                    let html = `
+                        <div class="cost-breakdown">
+                            <p><strong>📊 Token Estimate:</strong></p>
+                            <ul>
+                                <li>Files: ${tokens.processed_files}${tokens.is_sample ? ` (sample of ${tokens.total_files})` : ''}</li>
+                                <li>Input tokens: ${tokens.input_tokens.toLocaleString()}</li>
+                                <li>Output tokens: ${tokens.output_tokens.toLocaleString()}</li>
+                                <li>Total tokens: ${tokens.total_tokens.toLocaleString()}</li>
+                            </ul>
+                    `;
+                    
+                    if (cost.error) {
+                        html += `<p><span class="error">Cost calculation error: ${cost.error}</span></p>`;
+                    } else {
+                        if (cost.note) {
+                            html += `<p><strong>💰 Cost:</strong> ${cost.note}</p>`;
+                        } else {
+                            html += `
+                                <p><strong>💰 Cost Estimate:</strong></p>
+                                <ul>
+                                    <li>Input: $${cost.input_cost} (${cost.input_rate}/1M tokens)</li>
+                                    <li>Output: $${cost.output_cost} (${cost.output_rate}/1M tokens)</li>
+                                    <li><strong>Total: $${cost.total_cost}</strong></li>
+                                </ul>
+                            `;
+                        }
+                    }
+                    
+                    html += '</div>';
+                    costDiv.innerHTML = html;
+                    costSection.style.display = 'block';
+                })
+                .catch(err => {
+                    console.error('Error updating cost estimate:', err);
+                });
+        }
+        
+        // Populate corpus dropdown
+        function fetchCorpora() {
+            fetch('/list_corpora')
+                .then(res => res.json())
+                .then(corpora => {
+                    const select = document.getElementById('corpus-select');
+                    select.innerHTML = '';
+                    
+                    if (corpora.length === 0) {
+                        const opt = document.createElement('option');
+                        opt.value = '';
+                        opt.textContent = 'No corpora found';
+                        select.appendChild(opt);
+                    } else {
+                        corpora.forEach(corpus => {
+                            const opt = document.createElement('option');
+                            opt.value = corpus;
+                            opt.textContent = corpus;
+                            select.appendChild(opt);
+                        });
+                        
+                        // Set the first corpus as selected and load its sample options
+                        if (corpora.length > 0) {
+                            currentCorpus = corpora[0];
+                            select.value = currentCorpus;
+                            loadSampleOptions();
+                            updateCostEstimate();
+                        }
+                        
+                        // Set up change handler for corpus selection
+                        select.addEventListener('change', function() {
+                            currentCorpus = this.value;
+                            if (currentCorpus) {
+                                loadSampleOptions();
+                                if (document.getElementById('test-mode-toggle').checked) {
+                                    loadTextPreview();
+                                }
+                                updateCostEstimate();
+                            } else {
+                                document.getElementById('text-preview-section').style.display = 'none';
+                                document.getElementById('cost-estimate').style.display = 'none';
+                            }
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.error('Error fetching corpora:', err);
+                    const select = document.getElementById('corpus-select');
+                    select.innerHTML = '<option value="">Error loading corpora</option>';
+                });
+        }
+        
+        // Populate model dropdown from Ollama endpoint
+        function fetchModels() {
+            fetch('/ollama_models')
+                .then(res => res.json())
+                .then(data => {
+                    const select = document.getElementById('model-select');
+                    select.innerHTML = '';
+                    
+                    if (data.error) {
+                        // Show fallback models with warning
+                        data.fallback_models.forEach(m => {
+                            const opt = document.createElement('option');
+                            opt.value = m;
+                            opt.textContent = `${m} (offline)`;
+                            select.appendChild(opt);
+                        });
+                        // Show error message
+                        addStreamLine(`⚠️ Ollama connection error: ${data.error}. Using fallback models.`);
+                    } else {
+                        data.forEach(m => {
+                            const opt = document.createElement('option');
+                            opt.value = m;
+                            opt.textContent = m;
+                            select.appendChild(opt);
+                        });
+                        
+                        // Set first model as current
+                        if (data.length > 0) {
+                            currentModel = data[0];
+                            updateCostEstimate();
+                        }
+                    }
+                })
+                .catch(err => {
+                    console.error('Error fetching models:', err);
+                    const select = document.getElementById('model-select');
+                    select.innerHTML = '<option value="llama2">llama2 (offline)</option>';
+                    addStreamLine(`❌ Failed to fetch models: ${err.message}`);
+                });
+        }
+        document.getElementById('provider-select').addEventListener('change', function() {
+            currentProvider = this.value;
+            if (this.value === 'ollama') {
+                fetchModels();
+            } else {
+                const select = document.getElementById('model-select');
+                select.innerHTML = '<option value="gpt-4">gpt-4</option>';
+                currentModel = 'gpt-4';
+                updateCostEstimate();
+            }
+        });
+        
+        // Add change handler for model selection
+        document.getElementById('model-select').addEventListener('change', function() {
+            currentModel = this.value;
+            updateCostEstimate();
+        });
+        
+        // Add change handler for sample size
+        document.getElementById('sample-size-select').addEventListener('change', updateCostEstimate);
+        
+        // Add handler for file selector in preview
+        document.getElementById('file-selector').addEventListener('change', function() {
+            const fileIndex = this.value;
+            if (currentCorpus && fileIndex !== '') {
+                fetch(`/preview_sample?corpus=${encodeURIComponent(currentCorpus)}&file_index=${fileIndex}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (!data.error) {
+                            document.getElementById('preview-filename').textContent = data.filename;
+                            document.getElementById('preview-content').textContent = data.preview;
+                            document.getElementById('preview-stats').innerHTML = 
+                                `Length: ${data.full_length} characters | File ${data.file_index + 1} of ${data.total_files}`;
+                        }
+                    });
+            }
+        });
+        
+        document.getElementById('refresh-preview').addEventListener('click', loadTextPreview);
+        
+        fetchModels();
+        fetchCorpora();
+        initTestMode();
+
+        // Pipeline progress management
+        function updateProgress(step, percentage) {
+            document.getElementById(`progress-${step}`).style.width = `${percentage}%`;
+        }
+
+        function setStepActive(step) {
+            // Reset all steps
+            document.querySelectorAll('#pipeline-steps li').forEach(li => {
+                li.classList.remove('active', 'completed');
+            });
+            // Set current step as active
+            document.getElementById(`step-${step}`).classList.add('active');
+            // Mark previous steps as completed
+            for (let i = 1; i < step; i++) {
+                document.getElementById(`step-${i}`).classList.add('completed');
+                updateProgress(i, 100);
+            }
+        }
+
+        function setStepCompleted(step) {
+            document.getElementById(`step-${step}`).classList.remove('active');
+            document.getElementById(`step-${step}`).classList.add('completed');
+            updateProgress(step, 100);
+        }
+
+        function addStreamLine(text) {
+            const streamContent = document.getElementById('stream-content');
+            const line = document.createElement('div');
+            line.className = 'stream-line';
+            line.textContent = `[${new Date().toLocaleTimeString()}] ${text}`;
+            streamContent.appendChild(line);
+            streamContent.scrollTop = streamContent.scrollHeight;
+        }
+
+        // Enhanced form submission with streaming
+        document.getElementById('process-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            // Reset pipeline
+            document.querySelectorAll('#pipeline-steps li').forEach(li => {
+                li.classList.remove('active', 'completed');
+            });
+            document.querySelectorAll('.progress').forEach(p => p.style.width = '0%');
+            document.getElementById('stream-content').innerHTML = '';
+            
+            addStreamLine('🚀 Starting corpus processing...');
+            setStepActive(1);
+            
+            // Use Server-Sent Events for streaming
+            const eventSource = new EventSource(`/process_corpus_stream?${new URLSearchParams(formData)}`);
+            
+            eventSource.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                
+                if (data.type === 'progress') {
+                    updateProgress(data.step, data.percentage);
+                    addStreamLine(data.message);
+                } else if (data.type === 'step_start') {
+                    setStepActive(data.step);
+                    addStreamLine(`📋 ${data.message}`);
+                } else if (data.type === 'step_complete') {
+                    setStepCompleted(data.step);
+                    addStreamLine(`✅ ${data.message}`);
+                } else if (data.type === 'complete') {
+                    addStreamLine('🎉 Processing complete!');
+                    eventSource.close();
+                    setTimeout(() => {
+                        fetchResults();
+                    }, 1000);
+                } else if (data.type === 'error') {
+                    addStreamLine(`❌ Error: ${data.message}`);
+                    eventSource.close();
+                }
+            };
+            
+            eventSource.onerror = function(event) {
+                addStreamLine('❌ Connection error occurred');
+                eventSource.close();
+            };
+        });
+
+        // Results preview logic
+        function fetchResults() {
+            fetch('/list_results')
+                .then(res => res.json())
+                .then(results => {
+                    const selector = document.getElementById('result-selector');
+                    selector.innerHTML = '';
+                    results.forEach(r => {
+                        const opt = document.createElement('option');
+                        opt.value = r;
+                        opt.textContent = r;
+                        selector.appendChild(opt);
+                    });
+                    if (results.length) {
+                        showResultInfo(results[0]);
+                        selector.addEventListener('change', function() {
+                            showResultInfo(this.value);
+                        });
+                    }
+                });
+        }
+        
+        function showResultInfo(name) {
+            if (!name) return;
+            
+            fetch(`/preview_result?name=${encodeURIComponent(name)}`)
+                .then(res => res.json())
+                .then(data => {
+                    const info = document.getElementById('result-info');
+                    const bookCount = Object.keys(data).length;
+                    const totalScenes = Object.values(data).reduce((sum, book) => sum + (book.scenes?.length || 0), 0);
+                    
+                    info.innerHTML = `
+                        <div class="result-summary">
+                            <strong>📚 Books analyzed:</strong> ${bookCount}<br>
+                            <strong>🎬 Total scenes:</strong> ${totalScenes}<br>
+                            <strong>📄 File:</strong> ${name}
+                        </div>
+                    `;
+                })
+                .catch(err => {
+                    document.getElementById('result-info').innerHTML = '<span class="error">Error loading result info</span>';
+                });
+        }
+        
+        function visualizeSelectedResult() {
+            const selector = document.getElementById('result-selector');
+            const selectedResult = selector.value;
+            if (selectedResult) {
+                window.open(`/visualization?result=${encodeURIComponent(selectedResult)}`, '_blank');
+            } else {
+                alert('Please select a result to visualize');
+            }
+        }
+        
+        function downloadSelectedResult() {
+            const selector = document.getElementById('result-selector');
+            const selectedResult = selector.value;
+            if (selectedResult) {
+                const link = document.createElement('a');
+                link.href = `/download_result?name=${encodeURIComponent(selectedResult)}`;
+                link.download = selectedResult;
+                link.click();
+            } else {
+                alert('Please select a result to download');
+            }
+        }
+        
+        fetchResults();
+    </script>
+</body>
+</html>

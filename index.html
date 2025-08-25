@@ -1,125 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSC Retro Tech Concordance - The Babysitter's Club Technology Archive</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Righteous&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSC23 - Digital Scholarship Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=VT323&family=Comic+Neue:wght@400;700&family=Righteous&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .main-title {
+      font-family: 'Righteous', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: #6c757d;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: #495057;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 2px solid transparent;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      border-color: #667eea;
+    }
+
+    .project-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .project-author {
+      font-size: 0.9rem;
+      color: #6c757d;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .project-description {
+      margin-bottom: 20px;
+      color: #495057;
+    }
+
+    .project-features {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .project-features li {
+      padding: 5px 0;
+      color: #6c757d;
+      font-size: 0.95rem;
+    }
+
+    .project-features li:before {
+      content: "✨ ";
+      color: #667eea;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-family: 'VT323', monospace;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .retro-tech .project-card {
+      border-left: 5px solid #ff6b6b;
+    }
+
+    .speaker-diarization .project-card {
+      border-left: 5px solid #4ecdc4;
+    }
+
+    .corpus-analysis .project-card {
+      border-left: 5px solid #45b7d1;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+    }
+
+    .github-link {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .github-link:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2.5rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-card {
+        padding: 20px;
+      }
+    }
+
+    /* Retro animation effects */
+    @keyframes glow {
+
+      0%,
+      100% {
+        text-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+      }
+
+      50% {
+        text-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+      }
+    }
+
+    .main-title {
+      animation: glow 3s ease-in-out infinite;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <header class="header">
-            <h1 class="title">
-                <span class="retro-text">BSC</span>
-                <span class="tech-text">RETRO TECH</span>
-                <span class="archive-text">CONCORDANCE</span>
-            </h1>
-            <p class="subtitle">Technology Mentions from The Babysitter's Club Books</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1 class="main-title">DSC23</h1>
+      <p class="subtitle">Digital Scholarship Collection</p>
+      <p class="description">
+        Three innovative projects developed for digital scholarship and analysis related to
+        The Baby-Sitters Club book series and digital humanities research. Each project
+        explores different aspects of digital text analysis, audio processing, and interactive
+        data visualization.
+      </p>
+    </header>
 
-        <div class="main-content">
-            <div class="monitor-section">
-                <div class="monitor">
-                    <div class="monitor-frame">
-                        <div class="monitor-bezel">
-                            <div class="monitor-screen">
-                                <div class="scan-lines"></div>
-                                <div class="content-area" id="contentArea">
-                                    <div class="welcome-message">
-                                        <h3>🌟 Welcome to the BSC Tech Concordance! 🌟</h3>
-                                        <p>📚 Explore technology mentions from The Babysitter's Club books! 📚</p>
-                                        <div class="welcome-features">
-                                            <div>🎮 Interactive retro display</div>
-                                            <div>⚡ Auto-rotating mentions</div>
-                                            <div>🔍 20 tech terms to discover</div>
-                                        </div>
-                                        <div class="blink">► Select a term from the control panel below! ◄</div>
-                                    </div>
-                                </div>
-                                <div class="monitor-info">
-                                    <span id="currentTerm">No term selected</span>
-                                    <span id="mentionCounter">0 / 0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="monitor-stand"></div>
-                </div>
-            </div>
+    <main class="projects-grid">
+      <div class="project-card retro-tech">
+        <h2 class="project-title">DSC Retro Tech Archive</h2>
+        <p class="project-author">by Anastasia Salter (@amsucf)</p>
+        <p class="project-description">
+          A nostalgic 90s-style interactive website showcasing technology mentions from
+          The Baby-Sitters Club book series. Features authentic retro aesthetics with
+          a CRT monitor display and classic BSC vibes.
+        </p>
+        <ul class="project-features">
+          <li>Authentic 90s web design with CSS animations</li>
+          <li>Interactive technology term explorer</li>
+          <li>Auto-rotating mentions with keyboard navigation</li>
+          <li>Responsive design for all devices</li>
+        </ul>
+        <a href="./dsc-retro-tech/" class="project-link">Explore Archive</a>
+      </div>
 
-            <div class="controls-section">
-                <div class="control-panel">
-                    <div class="panel-header">
-                        <div class="panel-lights">
-                            <div class="light red"></div>
-                            <div class="light yellow"></div>
-                            <div class="light green active"></div>
-                        </div>
-                        <span class="panel-title">TECH TERM SELECTOR</span>
-                        <div class="panel-version">v2.0</div>
-                    </div>
-                    <div class="dropdown-container">
-                        <select id="termDropdown" class="retro-dropdown">
-                            <option value="">-- CHOOSE TECHNOLOGY TERM --</option>
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                        <div class="dropdown-arrow">▼</div>
-                    </div>
-                    <div class="panel-status">
-                        <div class="status-indicator">
-                            <div class="status-light"></div>
-                            <span id="statusText">READY TO SEARCH</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="project-card speaker-diarization">
+        <h2 class="project-title">Speaker Diarization</h2>
+        <p class="project-author">by John Murray (@lucidbard)</p>
+        <p class="project-description">
+          A complete speaker diarization pipeline that identifies "who spoke when" in audio
+          recordings using WhisperX for transcription and PyAnnote.audio for speaker
+          identification. Includes automatic correction for common transcription errors.
+        </p>
+        <ul class="project-features">
+          <li>WhisperX + PyAnnote integration</li>
+          <li>Automatic transcription error correction</li>
+          <li>Web interface for easy audio processing</li>
+          <li>Support for both CPU and GPU processing</li>
+        </ul>
+        <a href="./speaker-diarization/" class="project-link">View Pipeline</a>
+      </div>
 
-            <div class="feature-showcase">
-                <div class="showcase-container">
-                    <div class="showcase-header">
-                        <div class="showcase-icon">🤖</div>
-                        <h2 class="showcase-title">BUILT WITH AI AGENTS</h2>
-                        <div class="showcase-icon">⚡</div>
-                    </div>
-                    <p class="showcase-subtitle">See How This Interface Was Created Through AI Conversation</p>
-                    <a href="visualizing-with-agents.html" class="dramatic-link">
-                        <span class="link-text">
-                            <span class="link-icon">🔮</span>
-                            VISUALIZING WITH AGENTS
-                            <span class="link-icon">🔮</span>
-                        </span>
-                        <div class="link-glow"></div>
-                        <div class="link-pulse"></div>
-                    </a>
-                    <div class="showcase-tagline">
-                        <span class="tagline-accent">→</span> GitHub Copilot + Claude Sonnet 4 <span class="tagline-accent">←</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="project-card corpus-analysis">
+        <h2 class="project-title">BSC Corpus Analysis</h2>
+        <p class="project-author">by John Murray (@lucidbard)</p>
+        <p class="project-description">
+          A comprehensive workflow for analyzing narrative structure, character goals,
+          and scene segmentation in literary corpora, with a sample of extracted data from the Baby Sitters Club books.
+          Provides both Jupyter notebook processing and an interactive HTML dashboard for visualization.
+        </p>
+        <ul class="project-features">
+          <li>Scene segmentation and narrator identification</li>
+          <li>Character goal and conflict annotation using LLM</li>
+          <li>Interactive D3.js visualization dashboard</li>
+          <li>Support for multiple LLM providers</li>
+        </ul>
+        <a href="./bsc-corpus-analysis/" class="project-link">View Analysis</a>
+      </div>
+    </main>
 
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="geocities-footer">
-                    <div class="footer-gif">🌟✨💫</div>
-                    <p>📚 A nostalgic journey through 90s technology in Stoneybrook! 📱</p>
-                    <div class="visitor-counter">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="counter" style="width:1px;height:1px;">
-                        <span>🔢 You are visitor #∞ to this educational site! 🔢</span>
-                    </div>
-                    <p class="stats" id="statsInfo">Loading BSC tech stats...</p>
-                    <div class="footer-links">
-                        <span>🏠 <a href="#" style="color: #00ff41;">Home</a> | 📖 <a href="#" style="color: #00ff41;">About BSC</a> | � <a href="visualizing-with-agents.html" style="color: #00ff41;">Visualizing with Agents</a> | �🤝 <a href="#" style="color: #00ff41;">Guestbook</a> 🤝</span>
-                    </div>
-                    <div class="footer-gif">🌟✨💫</div>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
+    <footer>
+      <p class="footer-text">
+        Part of the <a href="https://github.com/datasittersclub/dsc23" class="github-link">DSC23 Repository</a>
+        - Digital Scholarship Collection for The Baby-Sitters Club Research
+      </p>
+    </footer>
+  </div>
 </body>
+
 </html>

@@ -1,108 +1,65 @@
-# BSC Retro Tech Archive 🌟
+# DSC23 Repository
 
-A nostalgic 90s-style website showcasing technology mentions from The Babysitter's Club book series, complete with retro monitor aesthetics and Babysitter's Club vibes!
+This repository contains three projects that were showcased in issue 23 of the [Data Sitter's Club](https://datasittersclub.github.io/site/) by Anastasia Salter and John Murray.
 
-## 🎮 Features
+## Projects Overview
 
-- **90s Aesthetic**: Gradient backgrounds, retro fonts, and CRT monitor display
-- **Interactive Experience**: Click term buttons to explore technology mentions
-- **Auto-Rotation**: Mentions automatically cycle every 4 seconds
-- **Keyboard Navigation**: Use arrow keys, spacebar, or Escape for control
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Easter Eggs**: Hidden surprises for the observant user!
+### 1. [DSC Retro Tech Archive](./dsc-retro-tech/)
+**Author:** [@amsucf](https://github.com/amsucf) (Anastasia Salter)
 
-## 🖥️ Technology Used
+A nostalgic 90s-style interactive website showcasing technology mentions from The Baby-Sitters Club book series. Features authentic retro aesthetics with a CRT monitor display and classic BSC vibes.
 
-- Pure HTML5, CSS3, and JavaScript (no frameworks needed!)
-- CSS Grid and Flexbox for responsive layouts
-- CSS animations and transitions for 90s effects
-- Google Fonts (Comic Neue and Righteous) for authentic feel
-- JSON data source for concordance information
+**Key Features:**
+- Authentic 90s web design with CSS animations
+- Interactive technology term explorer
+- Auto-rotating mentions with keyboard navigation
+- Responsive design for all devices
+- GitHub Pages ready deployment
 
-## 🚀 GitHub Pages Deployment
+**Files:**
+- `index.html` - Main retro website
+- `styles.css` - 90s aesthetic styling
+- `script.js` - Interactive functionality
+- `concordance.json` - Technology mention data
 
-This site is ready for immediate deployment on GitHub Pages:
 
-1. **Enable GitHub Pages**:
-   - Go to your repository settings
-   - Scroll down to "Pages" section
-   - Select "Deploy from a branch"
-   - Choose "main" branch and "/ (root)" folder
-   - Click "Save"
+### 2. [Speaker Diarization](./speaker-diarization/)
+**Author:** [@lucidbard](https://github.com/lucidbard) (John Murray)
 
-2. **Access Your Site**:
-   - Your site will be available at: `https://[username].github.io/[repository-name]/`
-   - GitHub will provide the exact URL in the Pages settings
+A complete speaker diarization pipeline that identifies "who spoke when" in audio recordings using WhisperX for transcription and PyAnnote.audio for speaker identification. Includes automatic correction for common transcription errors and handles natural conversation dynamics.
 
-3. **Files Structure**:
-   ```
-   ├── index.html          # Main page
-   ├── styles.css          # 90s styling
-   ├── script.js           # Interactive functionality
-   ├── concordance.json    # Your data source
-   └── README.md           # This file
-   ```
+**Key Features:**
+- WhisperX + PyAnnote integration for accurate speaker identification
+- Automatic transcription error correction
+- Web interface for easy audio processing
+- Support for both CPU and GPU processing
+- Comprehensive output formatting
 
-## 🎯 How to Use
+### 3. [BSC Corpus Analysis](./bsc-corpus-analysis/) 
+**Author:** [@lucidbard](https://github.com/lucidbard) (John Murray)
 
-1. **Select a Term**: Click any of the 20 technology term buttons
-2. **Watch the Magic**: The retro monitor displays mentions with context
-3. **Navigate**: 
-   - Mentions auto-rotate every 4 seconds
-   - Use ⬅️➡️ arrow keys to navigate manually
-   - Press spacebar for next mention
-   - Press Escape to return to welcome screen
-4. **Enjoy**: Each mention shows the book title, context, and position
+A comprehensive workflow for analyzing narrative structure, character goals, and scene segmentation in literary corpora. This project provides both a Jupyter notebook for processing and annotation, and an interactive HTML dashboard for visualization. There is also a sample dataset extracted from an analysis of Baby Sitter's Club books using openai-oss. 
 
-## 🎨 Design Elements
+**Key Features:**
+- Scene segmentation and narrator identification
+- Character goal and conflict annotation using LLM analysis
+- Interactive D3.js visualization dashboard
+- Support for multiple LLM providers (Anthropic, OpenAI, Ollama)
+- Project Gutenberg integration for text acquisition
 
-- **Color Scheme**: Hot pink, purple, neon green, and golden yellow
-- **Typography**: Comic Neue for body text, Righteous for headers
-- **Animations**: Gradient shifts, text glows, button pulses, and scan lines
-- **Monitor Effect**: Authentic CRT display with scan lines and green text
-- **90s Vibes**: Reminiscent of early computer interfaces and dial-up era
+## Getting Started
 
-## 📊 Data Structure
+Each project has its own README with detailed setup instructions:
 
-The concordance data includes:
-- 20 unique technology terms
-- 1,155 total mentions across 209 books
-- Each mention includes context, book source, and position
+- **BSC Corpus Analysis**: See [bsc-corpus-analysis/README.md](./bsc-corpus-analysis/README.md)
+- **Speaker Diarization**: See [speaker-diarization/README.md](./speaker-diarization/README.md)  
+- **DSC Retro Tech**: See [dsc-retro-tech/README.md](./dsc-retro-tech/README.md)
 
-## 🎮 Controls Reference
+## Repository Structure
 
-| Key | Action |
-|-----|--------|
-| Click Button | Select technology term |
-| ⬅️➡️ Arrows | Navigate through mentions |
-| Spacebar | Next mention |
-| Escape | Return to welcome screen |
-| ⬆⬆⬇⬇⬅➡⬅➡BA | Secret surprise! |
-
-## 🌟 Browser Compatibility
-
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
-
-## 📱 Mobile Features
-
-- Touch-friendly button interface
-- Responsive grid layout
-- Optimized typography for small screens
-- Maintains retro aesthetics on all devices
-
-## 🎪 Fun Facts
-
-- Features authentic 90s web design elements
-- Includes retro sound effects (with user interaction)
-- Hidden Konami code Easter egg
-- Styled to match the beloved BSC book series aesthetic
-- Perfect for exploring how technology evolved through the series
-
----
-
-**Built with 💖 for fans of The Babysitter's Club and 90s nostalgia!**
-
-*Ready to deploy and share the retro tech journey through Stoneybrook!* 🏡📚
+```
+dsc23/
+├── README.md                    # This file
+├── bsc-corpus-analysis/         # Literary corpus analysis tools
+├── speaker-diarization/         # Audio speaker identification
+└── dsc-retro-tech/             # 90s-style tech concordance

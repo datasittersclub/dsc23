@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🔑 API Key Management Terminal</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🔑 API Key Management Terminal</h1>
+    
+    <section>
+        <h2>🦙 Ollama Configuration</h2>
+        <form method="post" action="/save_ollama_config">
+            <label>🌐 Ollama Server URL:</label>
+            <input type="url" name="ollama_url" value="{{ ollama_config.get('url', 'http://localhost:11434') }}" placeholder="http://localhost:11434">
+            <button type="button" id="test-connection">🔗 Test Connection</button>
+            <div id="connection-status"></div>
+            
+            <div style="background: rgba(0, 255, 255, 0.1); padding: 1em; margin: 1em 0; border-radius: 8px; border: 1px solid #00ffff;">
+                <h4 style="color: #00ffff; margin-bottom: 0.5em;">💡 Troubleshooting Tips</h4>
+                <ul style="color: #ffff00; font-size: 0.9em; line-height: 1.4;">
+                    <li>Make sure Ollama is installed and running: <code>ollama serve</code></li>
+                    <li>For WSL, try: <code>http://localhost:11434</code> or <code>http://127.0.0.1:11434</code></li>
+                    <li>Check if Ollama is accessible: <code>curl http://localhost:11434/api/tags</code></li>
+                    <li>For remote servers, ensure the URL includes the port</li>
+                </ul>
+            </div>
+            
+            <label>📋 Available Models:</label>
+            <div id="models-list" style="max-height: 200px; overflow-y: auto; border: 1px solid #00ff41; padding: 1em; margin: 1em 0;">
+                Loading models...
+            </div>
+            
+            <button type="submit">💾 Save Ollama Config</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>🔐 Add New API Key</h2>
+        <form method="post">
+            <label>🤖 Provider:</label>
+            <select name="provider">
+                <option value="openai">🔮 OpenAI</option>
+                <option value="anthropic">🧠 Anthropic</option>
+            </select>
+            <label>🗝️ API Key:</label>
+            <input type="password" name="key" required placeholder="Enter your API key...">
+            <button type="submit">💾 Save Key</button>
+        </form>
+    </section>
+    
+    <section>
+        <h2>🗂️ Current Keys</h2>
+        <ul>
+            {% for provider, key in api_keys.items() %}
+            <li>🔹 {{ provider }}: {{ key[:8] }}{'*' * (key|length - 8) if key|length > 8 else key }}</li>
+            {% endfor %}
+        </ul>
+        <nav style="margin-top: 2em;">
+            <a href="/">🏠 Back to Dashboard</a>
+        </nav>
+    </section>
+
+    <script>
+        let availableModels = [];
+        
+        function testConnection() {
+            const url = document.querySelector('input[name="ollama_url"]').value;
+            const status = document.getElementById('connection-status');
+            status.innerHTML = '🔄 Testing...';
+            
+            fetch(`/test_ollama?url=${encodeURIComponent(url)}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        status.innerHTML = '✅ Connected successfully';
+                        status.style.color = '#00ff41';
+                        loadModels(url);
+                    } else {
+                        status.innerHTML = '❌ Connection failed: ' + data.error;
+                        status.style.color = '#ff1493';
+                    }
+                })
+                .catch(err => {
+                    status.innerHTML = '❌ Connection failed: ' + err.message;
+                    status.style.color = '#ff1493';
+                });
+        }
+        
+        function loadModels(url) {
+            fetch(`/ollama_models?url=${encodeURIComponent(url)}`)
+                .then(res => res.json())
+                .then(data => {
+                    const modelsList = document.getElementById('models-list');
+                    
+                    if (data.error) {
+                        modelsList.innerHTML = `
+                            <div style="color: #ff1493; margin-bottom: 1em;">
+                                ❌ Error: ${data.error}
+                            </div>
+                            <div style="color: #ffff00;">
+                                📋 Using fallback models:
+                            </div>
+                            ${data.fallback_models.map(model => `
+                                <label style="display: block; margin: 0.5em 0;">
+                                    <input type="checkbox" name="enabled_models" value="${model}" 
+                                           ${getModelEnabled(model) ? 'checked' : ''}>
+                                    ${model} (fallback)
+                                </label>
+                            `).join('')}
+                        `;
+                        availableModels = data.fallback_models;
+                    } else {
+                        availableModels = data;
+                        modelsList.innerHTML = data.map(model => `
+                            <label style="display: block; margin: 0.5em 0;">
+                                <input type="checkbox" name="enabled_models" value="${model}" 
+                                       ${getModelEnabled(model) ? 'checked' : ''}>
+                                ${model}
+                            </label>
+                        `).join('');
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('models-list').innerHTML = `
+                        <div style="color: #ff1493;">
+                            ❌ Failed to load models: ${err.message}
+                        </div>
+                        <div style="color: #666; margin-top: 1em; font-size: 0.9em;">
+                            💡 Make sure Ollama is running and accessible at the specified URL.
+                            <br>Try: <code>ollama serve</code> in your terminal.
+                        </div>
+                    `;
+                });
+        }
+        
+        function getModelEnabled(model) {
+            // Check if model is enabled (you can store this in localStorage or get from server)
+            const enabled = JSON.parse(localStorage.getItem('enabledModels') || '{}');
+            return enabled[model] !== false; // Default to enabled
+        }
+        
+        // Save enabled models to localStorage
+        document.addEventListener('change', function(e) {
+            if (e.target.name === 'enabled_models') {
+                const enabled = JSON.parse(localStorage.getItem('enabledModels') || '{}');
+                enabled[e.target.value] = e.target.checked;
+                localStorage.setItem('enabledModels', JSON.stringify(enabled));
+            }
+        });
+        
+        document.getElementById('test-connection').onclick = testConnection;
+        
+        // Auto-load models on page load
+        window.onload = function() {
+            const url = document.querySelector('input[name="ollama_url"]').value;
+            loadModels(url);
+        };
+    </script>
+</body>
+</html>

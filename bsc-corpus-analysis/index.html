@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕹️ BSC Story Analysis Dashboard</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* CRT/Retro 80s-90s Baby-Sitters Club Theme */
+        @import url('https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700;900&family=Press+Start+2P&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            font-size: 18px;
+            background: linear-gradient(45deg, #0f0f23, #1a1a2e, #16213e);
+            color: #00ff41;
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* CRT Screen Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 65, 0.03) 2px,
+                rgba(0, 255, 65, 0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* CRT Flicker Animation */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.98; }
+        }
+
+        body {
+            animation: flicker 0.15s infinite linear;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff69b4;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(45deg, #ff69b4, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .nav-link {
+            color: #00ffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #00ffff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: 'VT323', monospace;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #ff69b4;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .card-title {
+            font-family: 'Press Start 2P', cursive;
+            color: #ff69b4;
+            font-size: 14px;
+            margin-bottom: 1em;
+            text-shadow: 0 0 10px #ff69b4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            color: #00ffff;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            color: #ff69b4;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-group label {
+            color: #00ffff;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        select, input[type="range"] {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'VT323', monospace;
+        }
+
+        input[type="range"] {
+            width: 100px;
+        }
+
+        .chart-container {
+            position: relative;
+            min-height: 300px;
+        }
+
+        /* Fullscreen functionality */
+        .fullscreen-btn {
+            background: rgba(0, 255, 255, 0.2);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            padding: 3px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            flex-shrink: 0;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(0, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            display: none;
+            padding: 20px;
+        }
+
+        .fullscreen-content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .close-fullscreen {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.7);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            font-size: 16px;
+            z-index: 2001;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #00ffff;
+            font-size: 1.2em;
+        }
+
+        .legend {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        .scene-preview {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ffff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .scene-preview h4 {
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        .scene-preview p {
+            color: #00ffff;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        #result-selector {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .file-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .load-button {
+            background: rgba(255, 105, 180, 0.2);
+            border: 1px solid #ff69b4;
+            color: #ff69b4;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            margin-left: 10px;
+        }
+
+        .load-button:hover {
+            background: rgba(255, 105, 180, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🕹️ Baby-Sitters Club Story Analysis Dashboard</h1>
+        <nav class="nav">
+            <a href="#" class="nav-link active">🏠 Home</a>
+            <a href="#" class="nav-link">⚙️ Configuration</a>
+            <a href="#" class="nav-link">📊 Visualization</a>
+        </nav>
+    </div>
+
+    <div class="file-selector">
+        <select id="result-selector">
+            <option value="">Loading available files...</option>
+        </select>
+        <button class="load-button" onclick="loadSelectedFile()">Load Dataset</button>
+    </div>
+
+    <div class="dashboard">
+        <div class="card">
+            <div class="card-title">
+                <span>🎯 Goal Categories Distribution</span>
+                <button class="fullscreen-btn" onclick="openFullscreen('goals-chart')">🔍</button>
+            </div>
+            <div class="controls">
+                <div class="control-group">
+                    <label>Sort by:</label>
+                    <select id="goal-sort">
+                        <option value="count">Count</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                </div>
+            </div>
+            <div id="goals-chart" class="chart-container">
+            </div>
+            <div class="legend" id="goals-legend"></div>
+        </div>
+        <div class="card">
+            <div class="card-title">
+                <span>📏 Scene Length Distribution</span>
+                <button class="fullscreen-btn" onclick="openFullscreen('length-chart')">🔍</button>
+            </div>
+            <div class="controls">
+                <div class="control-group">
+                    <label>Bins:</label>
+                    <input type="range" id="bins-slider" min="5" max="20" value="10">
+                    <span id="bins-value">10</span>
+                </div>
+            </div>
+            <div id="length-chart" class="chart-container">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">
+                <span>⚡ Goals vs Conflicts by Scene</span>
+                <button class="fullscreen-btn" onclick="openFullscreen('scatter-chart')">🔍</button>
+            </div>
+            <div id="scatter-chart" class="chart-container">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">
+                <span>🕸️ Conflict Types Distribution</span>
+                <button class="fullscreen-btn" onclick="openFullscreen('conflict-network-chart')">🔍</button>
+            </div>
+            <div class="controls">
+                <div class="control-group">
+                    <label>Conflict threshold:</label>
+                    <input type="range" id="conflict-threshold" min="1" max="10" value="1">
+                    <span id="threshold-value">1</span>
+                </div>
+            </div>
+            <div id="conflict-network-chart" class="chart-container">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">
+                <span>🕸️ Character & Goal Network</span>
+                <button class="fullscreen-btn" onclick="openFullscreen('goal-network-chart')">🔍</button>
+            </div>
+            <div class="controls">
+                <div class="control-group">
+                    <label>Filter by category:</label>
+                    <select id="goal-filter">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Force strength:</label>
+                    <input type="range" id="goal-force-slider" min="50" max="300" value="150">
+                    <span id="goal-force-value">150</span>
+                </div>
+            </div>
+            <div id="goal-network-chart" class="chart-container">
+            </div>
+        </div>
+        <div class="card full-width">
+            <div class="card-title">🔍 Scene Details</div>
+            <div class="controls">
+                <div class="control-group">
+                    <label>Select scene:</label>
+                    <select id="scene-selector">
+                        <option value="">Choose a scene...</option>
+                    </select>
+                </div>
+            </div>
+            <div id="scene-details"></div>
+        </div>
+        <div class="card full-width">
+            <div class="card-title">📊 Dataset Overview</div>
+            <div class="stats-grid" id="stats-container">
+                <div class="loading">Select a dataset to view statistics</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen overlay -->
+    <div id="fullscreen-overlay" class="fullscreen-overlay">
+        <button class="close-fullscreen" onclick="closeFullscreen()">✕ Close</button>
+        <div class="fullscreen-content" id="fullscreen-content"></div>
+    </div>
+
+    <script>
+        let data = null;
+        let availableFiles = [];
+
+        // Load available JSON files
+        async function loadAvailableFiles() {
+            try {
+                // Try to find JSON files in the current directory
+                const commonFiles = [
+                    'clean corpus no paratext_gpt-oss:latest_visualization.json',
+                    'scene_analysis_visualization.json'
+                ];
+                
+                const selector = document.getElementById('result-selector');
+                selector.innerHTML = '';
+                
+                for (const file of commonFiles) {
+                    try {
+                        const response = await fetch(file, { method: 'HEAD' });
+                        if (response.ok) {
+                            const option = document.createElement('option');
+                            option.value = file;
+                            option.textContent = file;
+                            selector.appendChild(option);
+                            availableFiles.push(file);
+                        }
+                    } catch (e) {
+                        // File doesn't exist, continue
+                    }
+                }
+                
+                if (availableFiles.length === 0) {
+                    const option = document.createElement('option');
+                    option.value = '';
+                    option.textContent = 'No JSON files found - place your visualization.json file in this directory';
+                    selector.appendChild(option);
+                } else {
+                    // Auto-load the first file
+                    selector.value = availableFiles[0];
+                    loadSelectedFile();
+                }
+            } catch (error) {
+                console.error('Error loading available files:', error);
+            }
+        }
+
+        async function loadSelectedFile() {
+            const selector = document.getElementById('result-selector');
+            const fileName = selector.value;
+            
+            if (!fileName) {
+                alert('Please select a file to load');
+                return;
+            }
+            
+            try {
+                const response = await fetch(fileName);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                data = await response.json();
+                console.log('Data loaded successfully, books count:', data.books ? data.books.length : 'no books');
+                updateVisualization();
+            } catch (error) {
+                console.error('Error loading file:', error);
+                alert('Error loading file: ' + error.message);
+            }
+        }
+
+        function updateVisualization() {
+            if (!data) return;
+            
+            updateStatsContainer();
+            updateGoalsChart();
+            updateLengthChart();
+            updateScatterChart();
+            updateNetworkChart();
+            updateGoalNetworkChart();
+            updateSceneSelector();
+            setupEventListeners();
+        }
+
+        function updateStatsContainer() {
+            const container = document.getElementById('stats-container');
+            container.innerHTML = '';
+            
+            if (!data || !data.books) return;
+            
+            let totalScenes = 0;
+            let totalGoals = 0;
+            let totalConflicts = 0;
+            const characters = new Set();
+            
+            data.books.forEach(book => {
+                if (book.scenes) {
+                    totalScenes += book.scenes.length;
+                }
+                if (book.goals) {
+                    totalGoals += book.goals.length;
+                    book.goals.forEach(goal => {
+                        if (goal.character) characters.add(goal.character);
+                    });
+                }
+                if (book.conflicts) {
+                    totalConflicts += book.conflicts.length;
+                    book.conflicts.forEach(conflict => {
+                        if (conflict.character1) characters.add(conflict.character1);
+                        if (conflict.character2) characters.add(conflict.character2);
+                    });
+                }
+            });
+
+            const stats = [
+                { label: 'Books', value: data.books.length },
+                { label: 'Scenes', value: totalScenes },
+                { label: 'Goals', value: totalGoals },
+                { label: 'Conflicts', value: totalConflicts },
+                { label: 'Characters', value: characters.size }
+            ];
+
+            stats.forEach(stat => {
+                const card = document.createElement('div');
+                card.className = 'stat-card';
+                card.innerHTML = `
+                    <span class="stat-value">${stat.value.toLocaleString()}</span>
+                    <div class="stat-label">${stat.label}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function updateGoalsChart(chartData = data, containerId = 'goals-chart', width = 450, height = 300) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (!chartData || !chartData.books) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No goal data available</div>';
+                return;
+            }
+
+            // Count goals by category
+            const goalCounts = {};
+            chartData.books.forEach(book => {
+                if (book.goals) {
+                    book.goals.forEach(goal => {
+                        if (goal.category) {
+                            goalCounts[goal.category] = (goalCounts[goal.category] || 0) + 1;
+                        }
+                    });
+                }
+            });
+
+            const categoryData = Object.entries(goalCounts).map(([category, count]) => ({
+                category: category,
+                count: count
+            }));
+
+            if (categoryData.length === 0) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No goal categories found</div>';
+                return;
+            }
+
+            // Sort data
+            const sortBy = document.getElementById('goal-sort')?.value || 'count';
+            categoryData.sort((a, b) => {
+                if (sortBy === 'alphabetical') {
+                    return a.category.localeCompare(b.category);
+                }
+                return b.count - a.count;
+            });
+
+            const margin = { top: 20, right: 20, bottom: 80, left: 60 };
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+
+            const svg = d3.select(container)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            const xScale = d3.scaleBand()
+                .domain(categoryData.map(d => d.category))
+                .range([0, chartWidth])
+                .padding(0.1);
+
+            const yScale = d3.scaleLinear()
+                .domain([0, d3.max(categoryData, d => d.count)])
+                .range([chartHeight, 0]);
+
+            const colorScale = d3.scaleOrdinal()
+                .domain(categoryData.map(d => d.category))
+                .range(['#ff69b4', '#00ffff', '#ffff00', '#ff6600', '#00ff00', '#ff0099', '#0099ff']);
+
+            g.selectAll('.bar')
+                .data(categoryData)
+                .enter().append('rect')
+                .attr('class', 'bar')
+                .attr('x', d => xScale(d.category))
+                .attr('width', xScale.bandwidth())
+                .attr('y', d => yScale(d.count))
+                .attr('height', d => chartHeight - yScale(d.count))
+                .style('fill', d => colorScale(d.category))
+                .style('opacity', 0.8);
+
+            g.append('g')
+                .attr('transform', `translate(0,${chartHeight})`)
+                .call(d3.axisBottom(xScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .attr('transform', 'rotate(-45)')
+                .style('text-anchor', 'end');
+
+            g.append('g')
+                .call(d3.axisLeft(yScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace');
+
+            g.append('text')
+                .attr('transform', 'rotate(-90)')
+                .attr('y', 0 - margin.left)
+                .attr('x', 0 - (chartHeight / 2))
+                .attr('dy', '1em')
+                .style('text-anchor', 'middle')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .text('Number of Goals');
+
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', 20)
+                .attr('text-anchor', 'middle')
+                .style('fill', '#ff69b4')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '16px')
+                .text('Goal Categories Distribution');
+        }
+
+        function updateLengthChart(chartData = data, containerId = 'length-chart', width = 450, height = 300) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (!chartData || !chartData.books) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No scene data available</div>';
+                return;
+            }
+
+            // Collect scene lengths (calculate from text if length not available)
+            const sceneLengths = [];
+            chartData.books.forEach(book => {
+                if (book.scenes) {
+                    book.scenes.forEach(scene => {
+                        let length = scene.length;
+                        if (!length && scene.text) {
+                            // Calculate word count from text
+                            length = scene.text.split(/\s+/).length;
+                        }
+                        if (length && length > 0) {
+                            sceneLengths.push(length);
+                        }
+                    });
+                }
+            });
+
+            if (sceneLengths.length === 0) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No scene length data found</div>';
+                return;
+            }
+
+            const bins = parseInt(document.getElementById('bins-slider')?.value || 10);
+            const histogram = d3.histogram()
+                .domain(d3.extent(sceneLengths))
+                .thresholds(bins);
+
+            const binnedData = histogram(sceneLengths);
+
+            const margin = { top: 20, right: 20, bottom: 60, left: 60 };
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+
+            const svg = d3.select(container)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            const xScale = d3.scaleLinear()
+                .domain(d3.extent(sceneLengths))
+                .range([0, chartWidth]);
+
+            const yScale = d3.scaleLinear()
+                .domain([0, d3.max(binnedData, d => d.length)])
+                .range([chartHeight, 0]);
+
+            g.selectAll('.bar')
+                .data(binnedData)
+                .enter().append('rect')
+                .attr('class', 'bar')
+                .attr('x', d => xScale(d.x0))
+                .attr('width', d => Math.max(0, xScale(d.x1) - xScale(d.x0) - 1))
+                .attr('y', d => yScale(d.length))
+                .attr('height', d => chartHeight - yScale(d.length))
+                .style('fill', '#00ffff')
+                .style('opacity', 0.7);
+
+            g.append('g')
+                .attr('transform', `translate(0,${chartHeight})`)
+                .call(d3.axisBottom(xScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace');
+
+            g.append('g')
+                .call(d3.axisLeft(yScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace');
+
+            g.append('text')
+                .attr('x', chartWidth / 2)
+                .attr('y', chartHeight + 50)
+                .attr('text-anchor', 'middle')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .text('Scene Length (words)');
+
+            g.append('text')
+                .attr('transform', 'rotate(-90)')
+                .attr('y', 0 - margin.left)
+                .attr('x', 0 - (chartHeight / 2))
+                .attr('dy', '1em')
+                .style('text-anchor', 'middle')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .text('Number of Scenes');
+
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', 20)
+                .attr('text-anchor', 'middle')
+                .style('fill', '#ff69b4')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '16px')
+                .text('Scene Length Distribution');
+        }
+
+        function updateScatterChart(chartData = data, containerId = 'scatter-chart', width = 450, height = 300) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (!chartData || !chartData.books) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No scene data available</div>';
+                return;
+            }
+
+            // Aggregate goals and conflicts by scene
+            const sceneAggregates = {};
+            
+            chartData.books.forEach(book => {
+                if (book.scenes) {
+                    book.scenes.forEach(scene => {
+                        const sceneId = scene.scene_id || scene.id;
+                        if (sceneId) {
+                            if (!sceneAggregates[sceneId]) {
+                                let length = scene.length;
+                                if (!length && scene.text) {
+                                    // Calculate word count from text
+                                    length = scene.text.split(/\s+/).length;
+                                }
+                                sceneAggregates[sceneId] = {
+                                    sceneId: sceneId,
+                                    book: book.book_title || book.title,
+                                    goals: 0,
+                                    conflicts: 0,
+                                    length: length || 0
+                                };
+                            }
+                        }
+                    });
+                }
+                
+                if (book.goals) {
+                    book.goals.forEach(goal => {
+                        const sceneId = goal.scene_id;
+                        if (sceneId && sceneAggregates[sceneId]) {
+                            sceneAggregates[sceneId].goals++;
+                        }
+                    });
+                }
+                
+                if (book.conflicts) {
+                    book.conflicts.forEach(conflict => {
+                        const sceneId = conflict.scene_id;
+                        if (sceneId && sceneAggregates[sceneId]) {
+                            sceneAggregates[sceneId].conflicts++;
+                        }
+                    });
+                }
+            });
+
+            const sceneData = Object.values(sceneAggregates).filter(d => d.goals > 0 || d.conflicts > 0);
+
+            if (sceneData.length === 0) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No goal/conflict data by scene found</div>';
+                return;
+            }
+
+            const margin = { top: 20, right: 20, bottom: 60, left: 60 };
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+
+            const svg = d3.select(container)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            // Add zoom behavior
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            const zoom = d3.zoom()
+                .scaleExtent([0.5, 5])
+                .on('zoom', function(event) {
+                    g.attr('transform', `translate(${margin.left + event.transform.x},${margin.top + event.transform.y}) scale(${event.transform.k})`);
+                });
+
+            svg.call(zoom);
+
+            // Add reset zoom button
+            const resetBtn = svg.append('text')
+                .attr('x', width - 80)
+                .attr('y', 15)
+                .text('Reset Zoom')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '12px')
+                .style('cursor', 'pointer')
+                .on('click', function() {
+                    svg.transition().duration(750).call(
+                        zoom.transform,
+                        d3.zoomIdentity
+                    );
+                });
+
+            const xScale = d3.scaleLinear()
+                .domain([0, d3.max(sceneData, d => d.goals)])
+                .range([0, chartWidth]);
+
+            const yScale = d3.scaleLinear()
+                .domain([0, d3.max(sceneData, d => d.conflicts)])
+                .range([chartHeight, 0]);
+
+            const radiusScale = d3.scaleSqrt()
+                .domain([0, d3.max(sceneData, d => d.length)])
+                .range([2, 12]);
+
+            g.selectAll('.dot')
+                .data(sceneData)
+                .enter().append('circle')
+                .attr('class', 'dot')
+                .attr('cx', d => xScale(d.goals))
+                .attr('cy', d => yScale(d.conflicts))
+                .attr('r', d => radiusScale(d.length))
+                .style('fill', '#ff69b4')
+                .style('opacity', 0.6)
+                .style('stroke', '#00ffff')
+                .style('stroke-width', 1);
+
+            g.append('g')
+                .attr('transform', `translate(0,${chartHeight})`)
+                .call(d3.axisBottom(xScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace');
+
+            g.append('g')
+                .call(d3.axisLeft(yScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace');
+
+            g.append('text')
+                .attr('x', chartWidth / 2)
+                .attr('y', chartHeight + 50)
+                .attr('text-anchor', 'middle')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .text('Number of Goals');
+
+            g.append('text')
+                .attr('transform', 'rotate(-90)')
+                .attr('y', 0 - margin.left)
+                .attr('x', 0 - (chartHeight / 2))
+                .attr('dy', '1em')
+                .style('text-anchor', 'middle')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .text('Number of Conflicts');
+
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', 20)
+                .attr('text-anchor', 'middle')
+                .style('fill', '#ff69b4')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '16px')
+                .text('Goals vs Conflicts by Scene');
+        }
+
+        function updateNetworkChart(chartData = data, containerId = 'conflict-network-chart', width = 450, height = 300) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (!chartData || !chartData.books) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No conflict data available</div>';
+                return;
+            }
+
+            // Count conflict types (since characters_involved are mostly empty)
+            const threshold = parseInt(document.getElementById('conflict-threshold')?.value || 1);
+            const conflictTypes = {};
+            
+            chartData.books.forEach(book => {
+                if (book.conflicts) {
+                    book.conflicts.forEach(conflict => {
+                        if (conflict.conflict_type) {
+                            const type = conflict.conflict_type;
+                            conflictTypes[type] = (conflictTypes[type] || 0) + 1;
+                        }
+                    });
+                }
+            });
+
+            const filteredTypes = Object.entries(conflictTypes)
+                .filter(([type, count]) => count >= threshold)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10); // Limit to top 10 for readability
+
+            if (filteredTypes.length === 0) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No conflict types found above threshold</div>';
+                return;
+            }
+
+            const margin = { top: 20, right: 20, bottom: 120, left: 60 };
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+
+            const svg = d3.select(container)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+
+            const xScale = d3.scaleBand()
+                .domain(filteredTypes.map(d => d[0]))
+                .range([0, chartWidth])
+                .padding(0.1);
+
+            const yScale = d3.scaleLinear()
+                .domain([0, d3.max(filteredTypes, d => d[1])])
+                .range([chartHeight, 0]);
+
+            g.selectAll('.bar')
+                .data(filteredTypes)
+                .enter().append('rect')
+                .attr('class', 'bar')
+                .attr('x', d => xScale(d[0]))
+                .attr('width', xScale.bandwidth())
+                .attr('y', d => yScale(d[1]))
+                .attr('height', d => chartHeight - yScale(d[1]))
+                .style('fill', '#ff69b4')
+                .style('opacity', 0.8);
+
+            g.append('g')
+                .attr('transform', `translate(0,${chartHeight})`)
+                .call(d3.axisBottom(xScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '10px')
+                .attr('transform', 'rotate(-45)')
+                .style('text-anchor', 'end');
+
+            g.append('g')
+                .call(d3.axisLeft(yScale))
+                .selectAll('text')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace');
+
+            g.append('text')
+                .attr('transform', 'rotate(-90)')
+                .attr('y', 0 - margin.left)
+                .attr('x', 0 - (chartHeight / 2))
+                .attr('dy', '1em')
+                .style('text-anchor', 'middle')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .text('Number of Conflicts');
+
+            svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', 20)
+                .attr('text-anchor', 'middle')
+                .style('fill', '#ff69b4')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '16px')
+                .text('Conflict Types Distribution');
+        }
+
+        function updateGoalNetworkChart(chartData = data, containerId = 'goal-network-chart', width = 450, height = 300) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (!chartData || !chartData.books) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No goal data available</div>';
+                return;
+            }
+
+            const nodes = [];
+            const links = [];
+            const characterGoalCounts = {};
+            const goalCategoryCounts = {};
+            const characterConflicts = {};
+
+            // First pass: Collect all data
+            chartData.books.forEach(book => {
+                // Count goals by character and category
+                if (book.goals) {
+                    book.goals.forEach(goal => {
+                        if (goal.character && goal.category) {
+                            // Count character-goal relationships
+                            if (!characterGoalCounts[goal.character]) {
+                                characterGoalCounts[goal.character] = {};
+                            }
+                            characterGoalCounts[goal.character][goal.category] = 
+                                (characterGoalCounts[goal.character][goal.category] || 0) + 1;
+                            
+                            // Count goal categories
+                            goalCategoryCounts[goal.category] = (goalCategoryCounts[goal.category] || 0) + 1;
+                        }
+                    });
+                }
+
+                // Count character conflicts
+                if (book.conflicts) {
+                    book.conflicts.forEach(conflict => {
+                        // Extract characters from description if characters_involved is empty
+                        let characters = [];
+                        if (conflict.characters_involved && conflict.characters_involved.length > 0) {
+                            characters = conflict.characters_involved;
+                        } else if (conflict.description) {
+                            // Try to extract character names from the description
+                            const description = conflict.description;
+                            Object.keys(characterGoalCounts).forEach(char => {
+                                if (description.includes(char)) {
+                                    characters.push(char);
+                                }
+                            });
+                        }
+
+                        // Create conflict pairs
+                        for (let i = 0; i < characters.length; i++) {
+                            for (let j = i + 1; j < characters.length; j++) {
+                                const char1 = characters[i];
+                                const char2 = characters[j];
+                                const pair = [char1, char2].sort().join('|||');
+                                characterConflicts[pair] = (characterConflicts[pair] || 0) + 1;
+                            }
+                        }
+                    });
+                }
+            });
+
+            const filterCategory = document.getElementById('goal-filter')?.value || 'all';
+
+            // Create character nodes (sized by total goals)
+            Object.keys(characterGoalCounts).forEach(char => {
+                const totalGoals = Object.values(characterGoalCounts[char]).reduce((sum, count) => sum + count, 0);
+                nodes.push({
+                    id: char,
+                    type: 'character',
+                    name: char.length > 15 ? char.substring(0, 15) + '...' : char,
+                    size: Math.max(8, Math.min(20, 8 + totalGoals * 2)), // Scale based on goal count
+                    goalCount: totalGoals
+                });
+            });
+
+            // Create goal category nodes (sized by frequency)
+            Object.entries(goalCategoryCounts).forEach(([category, count]) => {
+                if (filterCategory === 'all' || filterCategory === category) {
+                    nodes.push({
+                        id: category,
+                        type: 'goal',
+                        name: category.length > 15 ? category.substring(0, 15) + '...' : category,
+                        size: Math.max(6, Math.min(25, 6 + count * 0.5)), // Scale based on frequency
+                        goalCount: count
+                    });
+                }
+            });
+
+            // Create character-goal links
+            Object.entries(characterGoalCounts).forEach(([char, goals]) => {
+                Object.entries(goals).forEach(([category, count]) => {
+                    if (filterCategory === 'all' || filterCategory === category) {
+                        links.push({
+                            source: char,
+                            target: category,
+                            type: 'goal',
+                            strength: Math.min(5, count * 0.5), // Thicker for more goals
+                            count: count
+                        });
+                    }
+                });
+            });
+
+            // Create character-character conflict links
+            Object.entries(characterConflicts).forEach(([pair, count]) => {
+                const [char1, char2] = pair.split('|||');
+                if (characterGoalCounts[char1] && characterGoalCounts[char2]) {
+                    links.push({
+                        source: char1,
+                        target: char2,
+                        type: 'conflict',
+                        strength: Math.min(8, count), // Thicker for more conflicts
+                        count: count
+                    });
+                }
+            });
+
+            if (nodes.length === 0) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #00ffff;">No character-goal relationships found</div>';
+                return;
+            }
+
+            const svg = d3.select(container)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            // Add zoom behavior
+            const g = svg.append('g');
+
+            const zoom = d3.zoom()
+                .scaleExtent([0.2, 4])
+                .on('zoom', function(event) {
+                    g.attr('transform', event.transform);
+                });
+
+            svg.call(zoom);
+
+            // Add reset zoom button
+            const resetBtn = svg.append('text')
+                .attr('x', width - 80)
+                .attr('y', 15)
+                .text('Reset View')
+                .style('fill', '#00ffff')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '12px')
+                .style('cursor', 'pointer')
+                .on('click', function() {
+                    svg.transition().duration(750).call(
+                        zoom.transform,
+                        d3.zoomIdentity
+                    );
+                });
+
+            // Add legend
+            const legend = svg.append('g')
+                .attr('transform', 'translate(10, 20)');
+
+            legend.append('circle')
+                .attr('cx', 10)
+                .attr('cy', 10)
+                .attr('r', 8)
+                .style('fill', '#ff69b4');
+            
+            legend.append('text')
+                .attr('x', 25)
+                .attr('y', 15)
+                .text('Characters')
+                .style('fill', '#ffffff')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '11px');
+
+            legend.append('circle')
+                .attr('cx', 10)
+                .attr('cy', 30)
+                .attr('r', 6)
+                .style('fill', '#00ffff');
+            
+            legend.append('text')
+                .attr('x', 25)
+                .attr('y', 35)
+                .text('Goal Types')
+                .style('fill', '#ffffff')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '11px');
+
+            legend.append('line')
+                .attr('x1', 5)
+                .attr('y1', 50)
+                .attr('x2', 20)
+                .attr('y2', 50)
+                .style('stroke', '#00ffff')
+                .style('stroke-width', 2);
+            
+            legend.append('text')
+                .attr('x', 25)
+                .attr('y', 55)
+                .text('Has Goals')
+                .style('fill', '#ffffff')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '11px');
+
+            legend.append('line')
+                .attr('x1', 5)
+                .attr('y1', 70)
+                .attr('x2', 20)
+                .attr('y2', 70)
+                .style('stroke', '#ff4444')
+                .style('stroke-width', 3);
+            
+            legend.append('text')
+                .attr('x', 25)
+                .attr('y', 75)
+                .text('In Conflict')
+                .style('fill', '#ffffff')
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '11px');
+
+            const forceStrength = parseInt(document.getElementById('goal-force-slider')?.value || 150);
+
+            const simulation = d3.forceSimulation(nodes)
+                .force('link', d3.forceLink(links).id(d => d.id).strength(d => d.type === 'conflict' ? 0.8 : 0.3))
+                .force('charge', d3.forceManyBody().strength(-forceStrength))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(d => d.size + 2));
+
+            // Create links
+            const link = g.append('g')
+                .selectAll('line')
+                .data(links)
+                .enter().append('line')
+                .style('stroke', d => d.type === 'conflict' ? '#ff4444' : '#00ffff')
+                .style('stroke-opacity', d => d.type === 'conflict' ? 0.8 : 0.6)
+                .style('stroke-width', d => d.strength)
+                .style('stroke-dasharray', d => d.type === 'conflict' ? '0' : '2,2');
+
+            // Create nodes
+            const node = g.append('g')
+                .selectAll('circle')
+                .data(nodes)
+                .enter().append('circle')
+                .attr('r', d => d.size)
+                .style('fill', d => d.type === 'character' ? '#ff69b4' : '#00ffff')
+                .style('stroke', '#fff')
+                .style('stroke-width', 2)
+                .style('opacity', 0.8)
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+
+            // Add hover effects
+            node.on('mouseover', function(event, d) {
+                d3.select(this).style('opacity', 1).style('stroke-width', 3);
+                
+                // Highlight connected links
+                link.style('opacity', function(l) {
+                    return (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.3;
+                });
+            })
+            .on('mouseout', function(event, d) {
+                d3.select(this).style('opacity', 0.8).style('stroke-width', 2);
+                link.style('opacity', l => l.type === 'conflict' ? 0.8 : 0.6);
+            });
+
+            // Create labels
+            const label = g.append('g')
+                .selectAll('text')
+                .data(nodes)
+                .enter().append('text')
+                .text(d => d.name)
+                .style('font-family', 'VT323, monospace')
+                .style('font-size', '10px')
+                .style('fill', '#ffffff')
+                .style('text-anchor', 'middle')
+                .style('pointer-events', 'none')
+                .style('text-shadow', '1px 1px 2px rgba(0,0,0,0.8)');
+
+            // Update positions on simulation tick
+            simulation.on('tick', () => {
+                link
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+
+                node
+                    .attr('cx', d => d.x)
+                    .attr('cy', d => d.y);
+
+                label
+                    .attr('x', d => d.x)
+                    .attr('y', d => d.y + 4);
+            });
+
+            // Drag functions
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+        }
+
+        function updateSceneSelector() {
+            const selector = document.getElementById('scene-selector');
+            selector.innerHTML = '<option value="">Choose a scene...</option>';
+            
+            if (!data || !data.books) return;
+            
+            data.books.forEach(book => {
+                if (book.scenes) {
+                    book.scenes.forEach(scene => {
+                        const option = document.createElement('option');
+                        option.value = JSON.stringify({
+                            bookTitle: book.book_title || book.title,
+                            sceneId: scene.scene_id || scene.id,
+                            preview: scene.preview
+                        });
+                        option.textContent = `${book.book_title || book.title} - Scene ${scene.scene_id || scene.id}`;
+                        selector.appendChild(option);
+                    });
+                }
+            });
+        }
+
+        function setupEventListeners() {
+            // Goal chart controls
+            const goalSort = document.getElementById('goal-sort');
+            if (goalSort) {
+                goalSort.addEventListener('change', () => updateGoalsChart());
+            }
+
+            // Bins slider
+            const binsSlider = document.getElementById('bins-slider');
+            const binsValue = document.getElementById('bins-value');
+            if (binsSlider && binsValue) {
+                binsSlider.addEventListener('input', (e) => {
+                    binsValue.textContent = e.target.value;
+                    updateLengthChart();
+                });
+            }
+
+            // Conflict threshold
+            const conflictThreshold = document.getElementById('conflict-threshold');
+            const thresholdValue = document.getElementById('threshold-value');
+            if (conflictThreshold && thresholdValue) {
+                conflictThreshold.addEventListener('input', (e) => {
+                    thresholdValue.textContent = e.target.value;
+                    updateNetworkChart();
+                });
+            }
+
+            // Goal network controls
+            const goalFilter = document.getElementById('goal-filter');
+            if (goalFilter && data && data.books) {
+                goalFilter.innerHTML = '<option value="all">All Categories</option>';
+                const categories = new Set();
+                data.books.forEach(book => {
+                    if (book.goals) {
+                        book.goals.forEach(goal => {
+                            if (goal.category) categories.add(goal.category);
+                        });
+                    }
+                });
+                categories.forEach(cat => {
+                    const option = document.createElement('option');
+                    option.value = cat;
+                    option.textContent = cat;
+                    goalFilter.appendChild(option);
+                });
+                goalFilter.addEventListener('change', () => updateGoalNetworkChart());
+            }
+
+            const goalForceSlider = document.getElementById('goal-force-slider');
+            const goalForceValue = document.getElementById('goal-force-value');
+            if (goalForceSlider && goalForceValue) {
+                goalForceSlider.addEventListener('input', (e) => {
+                    goalForceValue.textContent = e.target.value;
+                    updateGoalNetworkChart();
+                });
+            }
+
+            // Scene selector
+            const sceneSelector = document.getElementById('scene-selector');
+            if (sceneSelector) {
+                sceneSelector.addEventListener('change', (e) => {
+                    const details = document.getElementById('scene-details');
+                    if (e.target.value) {
+                        const sceneData = JSON.parse(e.target.value);
+                        details.innerHTML = `
+                            <div class="scene-preview">
+                                <h4>${sceneData.bookTitle} - Scene ${sceneData.sceneId}</h4>
+                                <p>${sceneData.preview || 'No preview available'}</p>
+                            </div>
+                        `;
+                    } else {
+                        details.innerHTML = '';
+                    }
+                });
+            }
+        }
+
+        // Fullscreen functionality
+        function openFullscreen(chartId) {
+            const overlay = document.getElementById('fullscreen-overlay');
+            const content = document.getElementById('fullscreen-content');
+            
+            overlay.style.display = 'block';
+            content.innerHTML = `<div id="fullscreen-${chartId}" class="chart-container" style="width: 100%; height: 100%;"></div>`;
+            
+            const containerSize = content.getBoundingClientRect();
+            const width = containerSize.width - 40;
+            const height = containerSize.height - 40;
+            
+            switch(chartId) {
+                case 'goals-chart':
+                    updateGoalsChart(data, `fullscreen-${chartId}`, width, height);
+                    break;
+                case 'length-chart':
+                    updateLengthChart(data, `fullscreen-${chartId}`, width, height);
+                    break;
+                case 'scatter-chart':
+                    updateScatterChart(data, `fullscreen-${chartId}`, width, height);
+                    break;
+                case 'conflict-network-chart':
+                    updateNetworkChart(data, `fullscreen-${chartId}`, width, height);
+                    break;
+                case 'goal-network-chart':
+                    updateGoalNetworkChart(data, `fullscreen-${chartId}`, width, height);
+                    break;
+            }
+        }
+
+        function closeFullscreen() {
+            const overlay = document.getElementById('fullscreen-overlay');
+            overlay.style.display = 'none';
+        }
+
+        // Initialize on load
+        window.addEventListener('load', loadAvailableFiles);
+    </script>
+</body>
+</html>
+        }

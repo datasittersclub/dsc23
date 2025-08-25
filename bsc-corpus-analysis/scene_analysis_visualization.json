@@ -1,0 +1,1161 @@
+{
+  "metadata": {
+    "generated_date": "2025-08-11",
+    "total_books": 3,
+    "total_scenes": 11,
+    "total_goals": 57,
+    "total_conflicts": 15,
+    "processor": "SimpleStoryProcessor"
+  },
+  "books": [
+    {
+      "book_id": "000c_the_summer_before",
+      "book_title": "000C The Summer Before",
+      "scene_count": 2,
+      "goal_count": 12,
+      "conflict_count": 4,
+      "scenes": [
+        {
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "book_id": "000c_the_summer_before",
+          "chapter_num": 1,
+          "scene_num": 1,
+          "text": "The Baby\u2011sitters Club. I\u2019m proud to say it was totally my idea, even though the four of us worked it out together. \u201cUs\u201d is Mary Anne Spier, Claudia Kishi, Stacey McGill, and me \u2014 Kristy Thomas. But that was at the beginning of seventh grade, after the summer in which my friendship with Claudia nearly fell apart, Mary Anne began to find out who she was, Claudia experienced her first love, and an unhappy girl left New York City and moved to our town. It was quite a summer.\n\nWhen Mary Anne and Claudia and Stacey and I talked about it later (when we were older), we discovered that during those long hot months we had all, separately, felt that we didn\u2019t quite belong where we were. Not one of us. Up until that summer we hadn\u2019t paid much attention to such things. But now Mary Anne felt that she was suddenly teetering between childhood and teenagehood, or whatever you call it, and that she didn\u2019t fit into either world. Claudia felt that she was drifting away from Mary Anne and me, drifting toward her own teenagehood alone \u2014 while Mary Anne and I lingered on the shore. Stacey had survived a horrible year and had been shunned by her classmates and friends, and now her parents had decided to move the family here to Stoneybrook, Connecticut, where she knew absolutely no one. And I, Kristin Amanda Thomas, felt like a stranger in my family. I would look around at my mom and my brothers, who were oh\u2011so\u2011happy with Mom\u2019s new boyfriend, Watson, and I\u2019d think, How can they leave Dad behind? Am I the only one who still wants him to be part of the family? And so I decided to give my father a second chance.\n\nThe summer started off like most of the other summers of my life. But by the end of it, everything was different. We were different. And the summer brought the four of us, Claudia, Stacey, Mary Anne, and me, together to form the Baby\u2011sitters Club \u2014 something we would belong to, in one sense or another, for the rest of our lives.",
+          "narrator": "Kristy Thomas",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "book_id": "000c_the_summer_before",
+          "chapter_num": 1,
+          "scene_num": 2,
+          "text": "When the bell rang at the end of the last day of sixth grade, I was ready. I had cleaned out my locker early that morning before school began \u2014 and I mean really cleaned it. With a tiny bottle of Fantastik and a bunch of paper towels that I had stuffed into my backpack before I left home. I had removed every last scrap of paper from the locker, every old eraser, every gum wrapper and paper clip and pencil stub, plus one gray sock, and thrown them away (including the sock, which smelled). Then I had scrubbed the locker down with the Fantastik. I wasn\u2019t taking any chances on being called at home in a day or two about the condition of my locker. I did not want to have to set foot in Stoneybrook Middle School again until September, when seventh grade would begin. So when that last bell rang, I ran from my language arts class (calling a hasty and not at all heartfelt good\u2011bye over my shoulder to Mrs. Alpin, whom I loathed) directly to the front door of SMS, where I met Mary Anne, my best friend in the world. Mary Anne had also cleaned her locker thoroughly that morning, and the two of us had not one single school responsibility left.\n\nWe had to wait for Claudia, though. Claud had not thought quite as far ahead as we had, and she still had to deal with her locker and also have a chat with her math teacher, whose class she had not exactly flunked but hadn\u2019t quite passed, either. These were Claud\u2019s words, and while they didn\u2019t make sense to me, I didn\u2019t care. School was out!\n\n\u201cYou know what my grandmother used to shout on the last day of school?\u201d I said to Mary Anne as we waited, lolling against the door frame and watching kids stream past us, calling and hooting.\n\n\u201cNo. What?\u201d I could tell that Mary Anne was impatient for Claudia to show up.\n\n\u201cShe used to shout, \u2018School\u2019s out! School\u2019s out! Teacher wore her bloomers out!\u2019 \u201d\n\nMary Anne stared at me. \u201cWhat does that mean?\u201d she said finally.\n\n\u201cWell, how should I know? It just sounds funny.\u201d\n\nMary Anne twirled the end of one brown braid thoughtfully around her finger. \u201cMaybe \u2014\u201d she started to say.\n\nBut I interrupted her. \u201cThere\u2019s Claudia.\u201d\n\nMary Anne turned around and we saw Claud coming toward us through the crowded corridor at a pace ordinarily reserved for snails and turtles. She was walking arm in arm with Dori Wallingford. Howie Johnson and Pete Black were flanking them.\n\n\u201cDori,\u201d Mary Anne muttered.\n\n\u201cBoys,\u201d I muttered.\n\nClaudia and Mary Anne and I used to sit together at lunch sometimes, but that had changed between our winter break and our spring break. Dori and several other girls who were more interested in clothes than in practically anything else had suddenly become more interesting to Claudia than Mary Anne and me or practically anyone else. Except boys.\n\nClaudia waved cheerfully to her new friends. \u201cSee you!\u201d she called as Dori and Howie and Pete crossed the lawn to the line of waiting school buses. \u201cHi, you guys,\u201d she said to Mary Anne and me, and for an instant I felt like something hanging on the Reduced rack at Bellair\u2019s Department Store.\n\n\u201cHey, Claud,\u201d said Mary Anne as we began our walk to Bradford Court, \u201cwhat do you think \u2018Teacher wore her bloomers out\u2019 means?\u201d\n\nClaud shrugged and snapped her gum.\n\nMary Anne tried again. \u201cSo, what are you guys doing this afternoon?\u201d\n\nNow Claudia answered in an instant. \u201cNothing. Wonderful, glorious nothing. That is the beauty of no homework.\u201d She paused, then added thoughtfully, \u201cWell, not really nothing. I think I\u2019ll paint.\u201d\n\n\u201cI\u2019m baby\u2011sitting for David Michael,\u201d I said. David Michael was my six\u2011year\u2011old brother. My big brothers (Charlie, who was sixteen, and Sam, who was fourteen) and I took turns watching him when school was out. While our mom had a great job at a company in Stamford, the salary wasn\u2019t enough to support four children and a nanny. Our parents were divorced and Dad, who had remarried and lived all the way across the country in California, sent money when he felt like it. The temporary jobs he got didn\u2019t pay much, so Mom always said, \u201cYou can\u2019t squeeze blood out",
+          "narrator": "Kristy Thomas",
+          "start_paragraph": null,
+          "end_paragraph": null
+        }
+      ],
+      "goals": [
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_1_goal_1",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "character": "Kristy Thomas",
+          "goal_text": "Create the Baby\u2011Sitters Club to foster a sense of belonging",
+          "motivation_type": "social",
+          "category": "social",
+          "evidence": "I\u2019m proud to say it was totally my idea",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_1_goal_2",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "character": "Kristy Thomas",
+          "goal_text": "Restore a relationship with her father",
+          "motivation_type": "family",
+          "category": "family",
+          "evidence": "And so I decided to give my father a second chance.",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_1_goal_3",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "character": "Mary Anne Spier",
+          "goal_text": "Discover her own identity",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "Mary Anne began to find out who she was",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_1_goal_4",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "character": "Claudia Kishi",
+          "goal_text": "Experience her first love",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "Claudia experienced her first love",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_1_goal_5",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "character": "Claudia Kishi",
+          "goal_text": "Seek independence and separate from her close friends",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "Claudia felt that she was drifting away from Mary Anne and me, drifting toward her own teenagehood alone \u2014 while Mary Anne and I lingered on the shore.",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_2_goal_1",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "character": "Kristy Thomas",
+          "goal_text": "Avoid being called home about the condition of her locker",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "\"I wasn\u2019t taking any chances on being called at home in a day or two about the condition of my locker.\"",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_2_goal_2",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "character": "Kristy Thomas",
+          "goal_text": "Avoid returning to Stoneybrook Middle School until September",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "\"I did not want to have to set foot in Stoneybrook Middle School again until September, when seventh grade would begin.\"",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_2_goal_3",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "character": "Kristy Thomas",
+          "goal_text": "Have a completely clean locker before school starts",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "\"I had cleaned out my locker early that morning before school began \u2014 and I mean really cleaned it.\"",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_2_goal_4",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "character": "Kristy Thomas",
+          "goal_text": "Babysit her younger brother to help her parents",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "\"I\u2019m baby\u2011sitting for David Michael.\"",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_2_goal_5",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "character": "Mary Anne",
+          "goal_text": "Understand what the phrase \"Teacher wore her bloomers out\" means",
+          "motivation_type": "social",
+          "category": "social",
+          "evidence": "\"What does that mean?\"",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_2_goal_6",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "character": "Claudia",
+          "goal_text": "Paint as a way to spend the day with nothing to do",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "\"I think I\u2019ll paint.\"",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "goal_id": "000c_the_summer_before_chapter_1_scene_2_goal_7",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "character": "Claudia",
+          "goal_text": "Avoid having homework during the summer break",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "\"Nothing. Wonderful, glorious nothing. That is the beauty of no homework.\"",
+          "confidence": 0.8,
+          "book_id": "000c_the_summer_before"
+        }
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "000c_the_summer_before_chapter_1_scene_1_conflict_1",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "conflict_type": "external_obstacle",
+          "description": "Kristy feels alienated by her family's acceptance of her mother's new boyfriend, leading to a conflict over the absence of her father.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "I would look around at my mom and my brothers, who were oh\u2011so\u2011happy with Mom\u2019s new boyfriend, Watson, and I\u2019d think, How can they leave Dad behind? Am I the only one who still wants him to be part of the family?",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "conflict_id": "000c_the_summer_before_chapter_1_scene_1_conflict_2",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "conflict_type": "external_obstacle",
+          "description": "Claudia feels she is drifting away from Kristy and Mary Anne, creating a tension in their friendship.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "Claudia felt that she was drifting away from Mary Anne and me, drifting toward her own teenagehood alone \u2014 while Mary Anne and I lingered on the shore.",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "conflict_id": "000c_the_summer_before_chapter_1_scene_1_conflict_3",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_1",
+          "conflict_type": "external_obstacle",
+          "description": "Stacey has been shunned by her peers, causing her to feel isolated in the new town.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "Stacey had survived a horrible year and had been shunned by her classmates and friends.",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "000c_the_summer_before"
+        },
+        {
+          "conflict_id": "000c_the_summer_before_chapter_1_scene_2_conflict_1",
+          "scene_id": "000c_the_summer_before_chapter_1_scene_2",
+          "conflict_type": "external_obstacle",
+          "description": "Mary Anne feels left out and neglected by Claudia, who has shifted her attention to new friends and boys, creating tension in their friendship.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "\"Claudia and Mary Anne and I used to sit together at lunch sometimes, but that had changed between our winter break and our spring break. Dori and several other girls who were more interested in clothes than in practically anything else had suddenly become more interesting to Claudia than Mary Anne and me or practically anyone else.\"",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "000c_the_summer_before"
+        }
+      ]
+    },
+    {
+      "book_id": "001c_kristys_great_idea",
+      "book_title": "001C Kristys Great Idea",
+      "scene_count": 4,
+      "goal_count": 17,
+      "conflict_count": 4,
+      "scenes": [
+        {
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_1",
+          "book_id": "001c_kristys_great_idea",
+          "chapter_num": 1,
+          "scene_num": 1,
+          "text": "The Baby\u2011sitters Club. I\u2019m proud to say it was totally my idea, even though the four of us worked it out together. \u201cUs\u201d is Mary Anne Spier, Claudia Kishi, Stacey McGill, and me\u2014Kristy Thomas.\n\nI got the idea on the first Tuesday afternoon of seventh grade. It was a very hot day. It was so hot that in my un\u2011air\u2011conditioned school, Stoneybrook Middle School, the teachers had opened every single window and door and turned off all the lights. My hair stuck damply to the back of my neck, and I wished I had a rubber band so I could pull it into a long ponytail. Bees flew into the classroom and droned around our heads, and Mr.\u202fRedmont, our teacher, let us stop working to make fans out of construction paper. The fans didn\u2019t do much except keep the bees away, but it was nice to take up ten minutes of social studies making them.\n\nAnyway, that stifling afternoon dragged on forever, and when the hands of the clock on the front wall of our classroom finally hit 2:42 and the bell rang, I leaped out of my seat and shouted, \u201cHooray!\u201d I was just so glad that it was time to get out of there. I like school and everything, but sometimes enough is enough.\n\nMr.\u202fRedmont looked shocked. He was probably thinking he\u2019d been so nice letting us make fans, and there I was, not appreciating it at all, just glad the day was over.\n\nI felt bad, but I couldn\u2019t help what I\u2019d done. I\u2019m like that. I think of something to say, and I say it. I think of something to do, and I do it. Mom calls it impulsive. Sometimes she calls it trouble. But she doesn\u2019t just mean trouble. She means trouble.\n\nAnd I was in trouble then. I could sense it. I\u2019ve been in enough trouble to know when it\u2019s coming.\n\nMr.\u202fRedmont cleared his throat. He was trying to think of a way to punish me without humiliating me in front of the other kids. Things like that are important to him.\n\n\u201cKristy,\u201d Mr.\u202fRedmont began, and then he changed his mind and started over. \u201cClass,\u201d he said, \u201cyou have your homework assignments. You may go. Kristy, I\u2019d like to see you for a minute.\u201d\n\nWhile the rest of the kids gathered up their books and papers and left the room, talking and giggling, I made my way up to Mr.\u202fRedmont\u2019s desk. Before he could say a word, I began apologizing to him. Sometimes that helps.\n\n\u201cMr.\u202fRedmont,\u201d I said, \u201cI\u2019m really sorry. I didn\u2019t mean anything. I mean, I didn\u2019t mean I was glad school was over. I meant I was glad I could go home. Because my house is air\u2011conditioned\u2026.\u201d\n\nMr.\u202fRedmont nodded. \u201cBut do you think, Kristy, that it would be possible, in the future, for you to conduct yourself with a bit more decorum?\u201d\n\nI wasn\u2019t sure of the exact meaning of decorum, but I had a pretty good idea it meant not spoiling Mr.\u202fRedmont\u2019s day by jumping up and shouting hooray when the bell rang.\n\n\u201cYes, sir,\u201d I said. Sometimes being polite also helps.\n\n\u201cGood,\u201d said Mr.\u202fRedmont. \u201cBut I want you to remember this incident, and the best way for us to remember things is to write them down. So tonight, I would like you to write a one\u2011hundred\u2011word essay on the importance of decorum in the classroom.\u201d\n\nDarn. I\u2019d have to find out what decorum meant after all.\n\n\u201cYes, sir,\u201d I said again.\n\nI went back to my desk, gathered up my books very slowly, and then walked very slowly out of the classroom.",
+          "narrator": "Kristy Thomas",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_2",
+          "book_id": "001c_kristys_great_idea",
+          "chapter_num": 1,
+          "scene_num": 2,
+          "text": "I found Mary Anne Spier waiting for me outside the door to my classroom. She was leaning against the wall, biting her nails.\n\nMary Anne is my best friend. We live next door to each other. We even look a little alike. We\u2019re both small for our age and we both have brown hair that falls past our shoulders. But that\u2019s where the similarity ends, because I can\u2019t keep my mouth shut, and Mary Anne is very quiet and very shy. Luckily, that\u2019s only on the outside. The people who know her well, like Claudia and Stacey and me, get to see the inside of her, and the Mary Anne who\u2019s hiding in there is a lot of fun.\n\n\u201cHey,\u201d I greeted her. I pulled her hand out of her mouth and looked at her nails. \u201cMary Anne! How do you ever expect to be able to wear nail polish if you keep doing that?\u201d\n\n\u201cOh, come on,\u201d she said with a sigh. \u201cNail polish. I\u2019ll be seventy\u2011five before my father lets me wear it.\u201d\n\nMary Anne\u2019s father is the only family she\u2019s got. Her mother is dead, and she has no brothers or sisters. Unfortunately, her father is pretty strict. My mother says it\u2019s just because Mr. Spier is nervous since Mary Anne is all he\u2019s got. You\u2019d think, though, that he could let her wear her hair down instead of always in braids, or give her permission to ride her bike to the mall with Claudia and me once in a while. But no. At Mr. Spier\u2019s house it\u2019s rules, rules, rules. It\u2019s a miracle that Mary Anne was even allowed to become a member of the Baby\u2011sitters Club.\n\nWe walked out of school, and suddenly I began running.",
+          "narrator": "Kristy Thomas",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_3",
+          "book_id": "001c_kristys_great_idea",
+          "chapter_num": 1,
+          "scene_num": 3,
+          "text": "We walked out of school, and suddenly I began running. I forgot all about decorum, because I\u2019d just remembered something else. \u201cOh, my gosh!\u201d I cried.\n\nMary Anne raced after me. \u201cWhat is it?\u201d she panted.\n\n\u201cIt\u2019s Tuesday,\u201d I called over my shoulder.\n\n\u201cSo? Slow down, Kristy. It\u2019s too hot to run.\u201d\n\n\u201cI can\u2019t slow down. Tuesday is my afternoon to watch David Michael. I\u2019m supposed to beat him home. Otherwise he gets home first and has to watch himself.\u201d\n\nDavid Michael is my six\u2011year\u2011old brother.\n\nMy big brothers, Charlie and Sam, and I are each responsible for him one afternoon a week until Mom gets home from work. Kathy, this fifteen\u2011year\u2011old girl who lives a few blocks from us, watches him the other two afternoons. Kathy gets paid to watch him. Charlie and Sam and I don\u2019t.\n\nMary Anne and I ran all the way home. We reached my front yard, sweaty and out of breath. And there was David Michael, sitting forlornly on the front steps, his dark curls falling limply across his forehead.",
+          "narrator": "Kristy Thomas",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_4",
+          "book_id": "001c_kristys_great_idea",
+          "chapter_num": 1,
+          "scene_num": 4,
+          "text": "David burst into tears as soon as he saw us.\n\n\u201cWhat\u2019s wrong?\u201d I asked. I sat down beside him and put my arm around his shoulders.\n\n\u201cI\u2019m locked out,\u201d he wailed.\n\n\u201cWhat happened to your key?\u201d\n\nDavid",
+          "narrator": "Kristy Thomas",
+          "start_paragraph": null,
+          "end_paragraph": null
+        }
+      ],
+      "goals": [
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_1_goal_1",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_1",
+          "character": "Kristy Thomas",
+          "goal_text": "Initiate and establish the Babysitters Club",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "\"I\u2019m proud to say it was totally my idea, even though the four of us worked it out together.\"",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_1_goal_2",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_1",
+          "character": "Kristy Thomas",
+          "goal_text": "Leave school quickly to go home because her house is air\u2011conditioned",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "\"Because my house is air\u2011conditioned\u2026\"",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_1_goal_3",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_1",
+          "character": "Kristy Thomas",
+          "goal_text": "Write a one\u2011hundred\u2011word essay to satisfy Mr. Redmont\u2019s disciplinary request",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "\"I would like you to write a one\u2011hundred\u2011word essay on the importance of decorum in the classroom.\"",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_1_goal_4",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_1",
+          "character": "Mr. Redmont",
+          "goal_text": "Punish Kristy without humiliating her in front of her classmates",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "\"He was trying to think of a way to punish me without humiliating me in front of the other kids.\"",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_1_goal_5",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_1",
+          "character": "Mr. Redmont",
+          "goal_text": "Encourage Kristy to conduct herself with more decorum in future",
+          "motivation_type": "social",
+          "category": "social",
+          "evidence": "\"\u2026for you to conduct yourself with a bit more decorum?\"",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_2_goal_1",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_2",
+          "character": "Kristy Thomas",
+          "goal_text": "wants Mary Anne to be allowed to wear her hair down and ride her bike to the mall with her friends",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "You\u2019d think, though, that he could let her wear her hair down instead of always in braids, or give her permission to ride her bike to the mall with Claudia and me once in a while.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_2_goal_2",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_2",
+          "character": "Mary Anne Spier",
+          "goal_text": "wants to wear nail polish",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "Nail polish. I\u2019ll be seventy\u2011five before my father lets me wear it.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_2_goal_3",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_2",
+          "character": "Mary Anne Spier",
+          "goal_text": "wants to ride her bike to the mall with Claudia and Kristy",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "You\u2019d think, though, that he could let her wear her hair down instead of always in braids, or give her permission to ride her bike to the mall with Claudia and me once in a while.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_2_goal_4",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_2",
+          "character": "Mary Anne Spier",
+          "goal_text": "wants to become a member of the Baby\u2011Sitters Club",
+          "motivation_type": "social",
+          "category": "social",
+          "evidence": "It\u2019s a miracle that Mary Anne was even allowed to become a member of the Baby\u2011sitters Club.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_3_goal_1",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_3",
+          "character": "Kristy Thomas",
+          "goal_text": "Beat David Michael home before he gets there so she can babysit him",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "I\u2019m supposed to beat him home.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_3_goal_2",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_3",
+          "character": "Kristy Thomas",
+          "goal_text": "Prevent David Michael from having to watch himself by arriving before him",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "Otherwise he gets home first and has to watch himself.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_3_goal_3",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_3",
+          "character": "Kathy",
+          "goal_text": "Earn money by babysitting David Michael",
+          "motivation_type": "babysitting/financial",
+          "category": "babysitting/financial",
+          "evidence": "Kathy gets paid to watch him.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_3_goal_4",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_3",
+          "character": "Charlie",
+          "goal_text": "Be responsible for babysitting David Michael on his assigned afternoon",
+          "motivation_type": "babysitting/family",
+          "category": "babysitting/family",
+          "evidence": "My big brothers, Charlie and Sam, and I are each responsible for him one afternoon a week until Mom gets home from work.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_3_goal_5",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_3",
+          "character": "Sam",
+          "goal_text": "Be responsible for babysitting David Michael on his assigned afternoon",
+          "motivation_type": "babysitting/family",
+          "category": "babysitting/family",
+          "evidence": "My big brothers, Charlie and Sam, and I are each responsible for him one afternoon a week until Mom gets home from work.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_4_goal_1",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_4",
+          "character": "Kristy Thomas",
+          "goal_text": "Comfort David",
+          "motivation_type": "social",
+          "category": "social",
+          "evidence": "I sat down beside him and put my arm around his shoulders.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_4_goal_2",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_4",
+          "character": "David",
+          "goal_text": "Get back into his house",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "I\u2019m locked out, he wailed.",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "goal_id": "001c_kristys_great_idea_chapter_1_scene_4_goal_3",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_4",
+          "character": "David",
+          "goal_text": "Find out what happened to his key",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "What happened to your key?",
+          "confidence": 0.8,
+          "book_id": "001c_kristys_great_idea"
+        }
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "001c_kristys_great_idea_chapter_1_scene_1_conflict_1",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_1",
+          "conflict_type": "external_obstacle",
+          "description": "Kristy\u2019s exuberant, impulsive reaction to the bell clashes with the teacher\u2019s expectation of decorum and his desire to discipline her without public humiliation.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "I leaped out of my seat and shouted, \u201cHooray!\u201d \u2026 Mr.\u202fRedmont looked shocked. \u2026 \"But do you think, Kristy, that it would be possible, in the future, for you to conduct yourself with a bit more decorum?\" \u2026 \"I want you to remember this incident, and the best way for us to remember things is to write them down. So tonight, I would like you to write a one\u2011hundred\u2011word essay on the importance of decorum in the classroom.\"",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "conflict_id": "001c_kristys_great_idea_chapter_1_scene_2_conflict_1",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_2",
+          "conflict_type": "external_obstacle",
+          "description": "Mary Anne wants to wear nail polish, hair down and ride her bike, but her strict father forbids these freedoms.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "Nail polish. I\u2019ll seventy\u2011five before my father lets me wear it.",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "conflict_id": "001c_kristys_great_idea_chapter_1_scene_2_conflict_2",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_2",
+          "conflict_type": "external_obstacle",
+          "description": "Kristy teasingly questions Mary Anne about her nail polish, leading to a mild disagreement.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "Mary\u202fAnne! How do you ever expect to be able to wear nail polish if you keep doing that?",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "001c_kristys_great_idea"
+        },
+        {
+          "conflict_id": "001c_kristys_great_idea_chapter_1_scene_3_conflict_1",
+          "scene_id": "001c_kristys_great_idea_chapter_1_scene_3",
+          "conflict_type": "external_obstacle",
+          "description": "Mary Anne tells Kristy to slow down because it is too hot, while Kristy insists she must keep running to beat her brother home.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "\"So? Slow down, Kristy. It\u2019s too hot to run.\" \"I can\u2019t slow down. Tuesday is my afternoon to watch David Michael.\"",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "001c_kristys_great_idea"
+        }
+      ]
+    },
+    {
+      "book_id": "002c_claudia_and_the_phantom_phone_calls",
+      "book_title": "002C Claudia And The Phantom Phone Calls",
+      "scene_count": 5,
+      "goal_count": 28,
+      "conflict_count": 7,
+      "scenes": [
+        {
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls",
+          "chapter_num": 1,
+          "scene_num": 1,
+          "text": "The evening was gloomy and windy, with rain streaming down from heavy clouds that blocked the moon. I thought it was the perfect night to a) curl up with The Phantom of Pine Hill\u2014a really spooky Nancy Drew mystery\u2014and the licorice whips I\u2019d hidden in my desk or b) work on the still life I\u2019d started and daydream about Trevor Sandbourne. But \"No,\" my dad said, \"homework first, Claudia,\" and there\u2019s no arguing with Dad. Besides, we have an agreement, my parents and I. The agreement is that if I get all my homework done every night (with someone in my family supervising me), I can continue to take my art classes. More important, I can stay in the Baby\u2011sitters Club.",
+          "narrator": "Claudia Kishi",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls",
+          "chapter_num": 1,
+          "scene_num": 2,
+          "text": "The Baby\u2011sitters Club is something my friend Kristy Thomas thought up a little while ago at the beginning of seventh grade. Kristy, who lives across the street from me, does a lot of baby\u2011sitting. So do I, Claudia Kishi, and so does Kristy\u2019s best friend, Mary Anne Spier, who lives next door to Kristy. So Kristy had this idea that the three of us should get together to form a group of baby\u2011sitters, advertise ourselves, and have a little business, which is just what we did. Plus, we asked a new friend of mine, Stacey McGill, to join, which she did. The Baby\u2011sitters Club is working really well. People know about us and call us all the time, and each of us has more jobs now than before the Baby\u2011sitters Club, so it was important that I be allowed to stay in it. But I almost blew it when the school sent a letter home to my parents saying that I wasn\u2019t working up to potential and stuff like that. My parents are used to those letters\u2014they get them about twice a year\u2014but what they hadn\u2019t expected to find out was that I had done almost none of my homework since school started. That was when Mom and Dad laid down the law.",
+          "narrator": "Claudia Kishi",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls",
+          "chapter_num": 1,
+          "scene_num": 3,
+          "text": "The thing about homework is that it is just so boring I can barely concentrate on it. And it\u2019s useless. Who cares whether > means greater than or less than, or what x equals? (Besides, why bother finding out, since x equals something different every time?) The only school thing I like to do is read, and the teachers even take the fun out of that. They don\u2019t care that I can almost always solve a mystery before the detective in the story can. They just care that I don\u2019t know what an adverb is.\n\nNone of this would be so bad if it weren\u2019t for Janine. Janine is my sister. She\u2019s fifteen and a real\u2011and\u2011true genius. Her IQ is 196, which is above average (100), and above above\u2011average (120), and even above the genius level, which is about 150. Actually, I\u2019ll tell you a secret. My IQ is also above average. Everyone is amazed, since I can barely spell, but that\u2019s why my parents and teachers come down so hard on me. I\u2019m smart, but I\u2019m not a good student. They say if I\u2019d just Pay Attention and Concentrate, I could do fine in school. But who cares? I\u2019d never live up to Janine.\n\nYou have no idea what it\u2019s like to have a genius for an older sister (unless, of course, you have one yourself). You can\u2019t even say the simplest thing to her. Yesterday morning all I did was go, \u201cJanine, it\u2019s cold out. Mom wants you to close your window before you leave for school,\u201d and you know what she said? She said, \u201cI find it fascinating that in our society we attempt to regulate the temperature of our environment rather than our bodies. It\u2019s so much more difficult and it\u2019s highly inefficient. Primitive peoples and peoples in various other societies existing today tend toward the mere addition or removal of clothing, while we invite the use of heating units and air conditioners.\u201d\n\nI didn\u2019t even know there was such a word as peoples.",
+          "narrator": "Claudia Kishi",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls",
+          "chapter_num": 1,
+          "scene_num": 4,
+          "text": "Anyway, to get back to that gloomy evening, Dad said I had to do my homework, and he said it was Mimi\u2019s turn to help me. I\u2019m supposed to try to do the work on my own, but one of them sits next to me to keep me from daydreaming, to make sure I do each assignment completely, to see that I follow directions and stuff, and to answer questions if I have them. They\u2019re not supposed to do the homework for me, but sometimes I can get Janine to give me answers. This is because my dumb homework is so boring for her, as she tells me at least twice every time she has to help me, that she\u2019ll do anything to speed it along. Well, I\u2019m sorry. I\u2019m sorry I\u2019m not up to trigonomulus, or whatever it is she does. We can\u2019t all be scholars.\n\nMimi, my grandmother, is the best person to help me. She\u2019s quiet and soft\u2011spoken and endlessly patient. My family is Japanese, and Mimi and my grandfather (who died long before I was born) brought my mother to the United States when Mom was just a little girl. Mom has no accent whatsoever (neither does my father, who also came to the United States as a small child), but Mimi has this pleasant, rolling accent that reminds me of a ship at sea. And she is polite, polite, polite, never speaking a harsh word.",
+          "narrator": "Claudia Kishi",
+          "start_paragraph": null,
+          "end_paragraph": null
+        },
+        {
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls",
+          "chapter_num": 1,
+          "scene_num": 5,
+          "text": "I got out my social studies text.\n\n\u201cWhat do we have between the covers of this book?\u201d asked Mimi, who thinks books are eyes into the hearts and lives of other people (peoples?). She told me so once.\n\n\u201cSocial studies,\u201d I replied. \u201cWe read chapter three in class today. Now we have to answer the discussion questions at the end of the chapter\u2026. Mimi, if they\u2019re discussion questions, why aren\u2019t we discussing them? How come Mr. Miller is making us write them down?\u201d\n\n\u201cI do not know, my Claudia, but if that is the assignment, then you must complete it as your teacher wishes.\u201d\n\n\u201cI know.\u201d Boy, did I know. A few weeks ago, I would have written down one\u2011word answers or skipped the assignment altogether. Now there was no way out.\n\nI began to write. Mimi looked on, every now and then pointing out a misspelled word or suggesting that I check my punctuation. After social studies came math and then English, and at last I was done. I breathed a sigh that was relief mixed with boredom.\n\n\u201cAnd what are you going to do now, my Claudia?\u201d asked Mimi.\n\n\u201cGet back to The Phantom of Pine Hill,\u201d I replied, slapping my English text closed. Mimi",
+          "narrator": "Claudia Kishi",
+          "start_paragraph": null,
+          "end_paragraph": null
+        }
+      ],
+      "goals": [
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1_goal_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1",
+          "character": "Claudia Kishi",
+          "goal_text": "curl up with a spooky Nancy Drew mystery and the licorice whips she hid in her desk",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "I thought it was the perfect night to a) curl up with The Phantom of Pine Hill\u2014a really spooky Nancy Drew mystery\u2014and the licorice whips I\u2019d hidden in my desk",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1_goal_2",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1",
+          "character": "Claudia Kishi",
+          "goal_text": "work on the still life she had started and daydream about Trevor Sandbourne",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "b) work on the still life I\u2019d started and daydream about Trevor Sandbourne",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1_goal_3",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1",
+          "character": "Claudia Kishi",
+          "goal_text": "complete her homework every night so she can keep her art classes",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "The agreement is that if I get all my homework done every night (with someone in my family supervising me), I can continue to take my art classes",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1_goal_4",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1",
+          "character": "Claudia Kishi",
+          "goal_text": "complete her homework every night so she can stay in the Baby\u2011sitters Club",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "More important, I can stay in the Baby\u2011sitters Club",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1_goal_5",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1",
+          "character": "Claudia\u2019s Dad",
+          "goal_text": "make sure Claudia does her homework first before any other activities",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "'No,' my dad said, 'homework first, Claudia,'",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_goal_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "character": "Claudia Kishi",
+          "goal_text": "remain a member of the Baby\u2011Sitters Club",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "\"so it was important that I be allowed to stay in it.\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_goal_2",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "character": "Claudia Kishi",
+          "goal_text": "continue receiving and completing more babysitting jobs",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "\"People know about us and call us all the time, and each of us has more jobs now than before the Baby\u2011sitters Club\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_goal_3",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "character": "Claudia Kishi",
+          "goal_text": "improve her academic performance to avoid further criticism from school and parents",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "\"what they hadn\u2019t expected to find out was that I had done almost none of my homework since school started.\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_goal_4",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "character": "Kristy Thomas",
+          "goal_text": "found and maintain the Baby\u2011Sitters Club as a small business",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "\"Kristy had this idea that the three of us should get together to form a group of baby\u2011sitters, advertise ourselves, and have a little business\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_goal_5",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "character": "Stacey McGill",
+          "goal_text": "join the Baby\u2011Sitters Club",
+          "motivation_type": "babysitting",
+          "category": "babysitting",
+          "evidence": "\"We asked a new friend of mine, Stacey McGill, to join, which she did.\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_goal_6",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "character": "Claudia's parents",
+          "goal_text": "ensure Claudia works up to her potential academically",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "\"the school sent a letter home to my parents saying that I wasn\u2019t working up to potential and stuff like that.\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_goal_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "character": "Claudia Kishi",
+          "goal_text": "Avoid doing homework",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "The thing about homework is that it is just so boring I can barely concentrate on it.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_goal_2",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "character": "Claudia Kishi",
+          "goal_text": "Not live up to Janine\u2019s expectations",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "But who cares? I\u2019d never live up to Janine.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_goal_3",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "character": "Claudia Kishi",
+          "goal_text": "Keep reading enjoyable and free of teacher interference",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "The only school thing I like to do is read, and the teachers even take the fun out of that.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_goal_4",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "character": "Claudia Kishi",
+          "goal_text": "Prove her intelligence despite spelling difficulties",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "My IQ is also above average. Everyone is amazed, since I can barely spell, but that\u2019s why my parents and teachers come down so hard on me.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_goal_5",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "character": "Claudia Kishi",
+          "goal_text": "Learn new vocabulary such as \"peoples\"",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "I didn\u2019t even know there was such a word as peoples.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_goal_6",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "character": "Teachers",
+          "goal_text": "Have Claudia understand what an adverb is",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "They just care that I don\u2019t know what an adverb is.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_goal_7",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "character": "Parents",
+          "goal_text": "Encourage Claudia to pay attention and concentrate so she can do fine in school",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "They say if I\u2019d just Pay Attention and Concentrate, I could do fine in school.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4_goal_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4",
+          "character": "Claudia Kishi",
+          "goal_text": "Ensure her homework is completed fully, even if it means doing the work on her own",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "I\u2019m supposed to try to do the work on my own, \u2026 to make sure I do each assignment completely",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4_goal_2",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4",
+          "character": "Claudia Kishi",
+          "goal_text": "Get answers from Janine so she can finish the homework quickly",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "but sometimes I can get Janine to give me answers",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4_goal_3",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4",
+          "character": "Claudia Kishi",
+          "goal_text": "Feel academically competent and not be seen as less of a scholar",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "I\u2019m sorry I\u2019m not up to trigonomulus, or whatever it is she does",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4_goal_4",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4",
+          "character": "Claudia Kishi",
+          "goal_text": "Have Mimi help her with her homework because Mimi is patient and supportive",
+          "motivation_type": "family",
+          "category": "family",
+          "evidence": "Mimi, my grandmother, is the best person to help me",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4_goal_5",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4",
+          "character": "Janine",
+          "goal_text": "Speed up the homework process so it takes less time",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "she\u2019ll do anything to speed it along",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4_goal_6",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_4",
+          "character": "Dad",
+          "goal_text": "Ensure Claudia does her homework and has help from Mimi",
+          "motivation_type": "family",
+          "category": "family",
+          "evidence": "Dad said I had to do my homework, and he said it was Mimi\u2019s turn to help me",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5_goal_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5",
+          "character": "Claudia Kishi",
+          "goal_text": "Complete her social studies, math, and English assignments to comply with the teacher\u2019s instructions",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "Now there was no way out.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5_goal_2",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5",
+          "character": "Claudia Kishi",
+          "goal_text": "Return to reading *The Phantom of Pine Hill* after finishing the assignments",
+          "motivation_type": "personal",
+          "category": "personal",
+          "evidence": "\"Get back to The Phantom of Pine Hill,\" I replied, slapping my English text closed.",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5_goal_3",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5",
+          "character": "Mimi",
+          "goal_text": "Encourage Claudia to complete her homework according to the teacher\u2019s instructions",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "\"If that is the assignment, then you must complete it as your teacher wishes.\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "goal_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5_goal_4",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5",
+          "character": "Mimi",
+          "goal_text": "Keep Claudia on track with her school work and ensure she finishes the assignments",
+          "motivation_type": "academic",
+          "category": "academic",
+          "evidence": "\"And what are you going to do now, my Claudia?\"",
+          "confidence": 0.8,
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        }
+      ],
+      "conflicts": [
+        {
+          "conflict_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1_conflict_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_1",
+          "conflict_type": "external_obstacle",
+          "description": "Claudia wants to spend the evening reading a spooky mystery or doing her art, but her dad insists she must do her homework first, overriding her plans.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "But \"No,\" my dad said, \"homework first, Claudia,\" and there\u2019s no arguing with Dad.",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "conflict_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_conflict_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "conflict_type": "external_obstacle",
+          "description": "Claudia\u2019s parents criticize her for not doing enough homework after receiving a letter from the school, threatening her standing at school and her ability to stay in the Baby\u2011Sitters Club.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "\"the school sent a letter home to my parents saying that I wasn\u2019t working up to potential and stuff like that.\"\n\"My parents are used to those letters\u2014they get them about twice a year\u2014but what they hadn\u2019t expected to find out was that I had done almost none of my homework since school started.\"",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "conflict_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2_conflict_2",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_2",
+          "conflict_type": "external_obstacle",
+          "description": "The school\u2019s letter indicates that Claudia is not living up to her academic potential, which she sees as a direct criticism of her work ethic.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "\"the school sent a letter home to my parents saying that I wasn\u2019t working up to potential and stuff like that.\"",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "conflict_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_conflict_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "conflict_type": "external_obstacle",
+          "description": "Teachers are uninterested in Claudia\u2019s intellectual curiosity and only care about her lack of knowledge of grammar.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "The teachers even take the fun out of that. They don\u2019t care that I can almost always solve a mystery before the detective in the story can. They just care that I don\u2019t know what an adverb is.",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "conflict_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_conflict_2",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "conflict_type": "external_obstacle",
+          "description": "Parents urge Claudia to pay attention and concentrate in school, which she resents and views as futile.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "They say if I\u2019d just Pay Attention and Concentrate, I could do fine in school.",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "conflict_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3_conflict_3",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_3",
+          "conflict_type": "external_obstacle",
+          "description": "Claudia feels pressure to live up to her genius sister\u2019s expectations and finds Janine\u2019s intellect intimidating.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "But who cares? I\u2019d never live up to Janine. \nYesterday morning all I did was go, \u201cJanine, it\u2019s cold out. Mom wants you to close your window before you leave for school,\u201d and you know what she said? She said, \u201cI find it fascinating that in our society we attempt to regulate the temperature of our environment rather than our bodies.\u201d",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        },
+        {
+          "conflict_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5_conflict_1",
+          "scene_id": "002c_claudia_and_the_phantom_phone_calls_chapter_1_scene_5",
+          "conflict_type": "external_obstacle",
+          "description": "Claudia is annoyed that she is forced to write down discussion questions instead of actually discussing them, while Mimi insists that the homework must be completed as directed by the teacher. The tension centers on differing views of how the assignment should be handled.",
+          "characters_involved": [],
+          "goals_affected": [],
+          "evidence": "\"Mimi, if they\u2019re discussion questions, why aren\u2019t we discussing them? How come Mr. Miller is making us write them down?\" \"I do not know, my Claudia, but if that is the assignment, then you must complete it as your teacher wishes.\"",
+          "rationale": "",
+          "severity": "medium",
+          "book_id": "002c_claudia_and_the_phantom_phone_calls"
+        }
+      ]
+    }
+  ],
+  "characters": {
+    "Teachers": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Claudia Kishi": {
+      "books": [
+        "000c_the_summer_before",
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 2,
+      "conflict_count": 0
+    },
+    "Kathy": {
+      "books": [
+        "001c_kristys_great_idea"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Charlie": {
+      "books": [
+        "001c_kristys_great_idea"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Mimi": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Claudia\u2019s Dad": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Parents": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Stacey McGill": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Claudia": {
+      "books": [
+        "000c_the_summer_before"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "David": {
+      "books": [
+        "001c_kristys_great_idea"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Dad": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Janine": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Kristy Thomas": {
+      "books": [
+        "000c_the_summer_before",
+        "001c_kristys_great_idea",
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 3,
+      "conflict_count": 0
+    },
+    "Claudia's parents": {
+      "books": [
+        "002c_claudia_and_the_phantom_phone_calls"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Mary Anne": {
+      "books": [
+        "000c_the_summer_before"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Sam": {
+      "books": [
+        "001c_kristys_great_idea"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Mr. Redmont": {
+      "books": [
+        "001c_kristys_great_idea"
+      ],
+      "book_count": 1,
+      "conflict_count": 0
+    },
+    "Mary Anne Spier": {
+      "books": [
+        "000c_the_summer_before",
+        "001c_kristys_great_idea"
+      ],
+      "book_count": 2,
+      "conflict_count": 0
+    }
+  },
+  "character_books": {
+    "Kristy Thomas": [
+      "000c_the_summer_before",
+      "001c_kristys_great_idea",
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Mary Anne Spier": [
+      "000c_the_summer_before",
+      "001c_kristys_great_idea"
+    ],
+    "Claudia Kishi": [
+      "000c_the_summer_before",
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Mary Anne": [
+      "000c_the_summer_before"
+    ],
+    "Claudia": [
+      "000c_the_summer_before"
+    ],
+    "Mr. Redmont": [
+      "001c_kristys_great_idea"
+    ],
+    "Kathy": [
+      "001c_kristys_great_idea"
+    ],
+    "Charlie": [
+      "001c_kristys_great_idea"
+    ],
+    "Sam": [
+      "001c_kristys_great_idea"
+    ],
+    "David": [
+      "001c_kristys_great_idea"
+    ],
+    "Claudia\u2019s Dad": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Stacey McGill": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Claudia's parents": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Teachers": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Parents": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Janine": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Dad": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ],
+    "Mimi": [
+      "002c_claudia_and_the_phantom_phone_calls"
+    ]
+  },
+  "conflict_network": []
+}

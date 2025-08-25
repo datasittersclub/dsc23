@@ -1,0 +1,33 @@
+# WhisperX and PyAnnote Speaker Diarization Requirements
+# Python 3.10 required
+
+# Core dependencies
+torch==2.0.1
+torchaudio==2.0.2
+git+https://github.com/m-bain/whisperX.git
+
+# PyAnnote for speaker diarization
+pyannote.audio==3.1.1
+
+# Whisper dependencies
+faster-whisper
+openai-whisper
+
+# Audio processing
+librosa
+soundfile
+pydub
+
+# HuggingFace integration
+huggingface_hub
+transformers
+accelerate
+
+# Utilities
+numpy
+scipy
+pandas
+tqdm
+
+# Web interface
+flask
